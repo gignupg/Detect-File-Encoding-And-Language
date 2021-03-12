@@ -144,7 +144,7 @@ module.exports = (file) => {
                     if (/도/i.test(phrase)) {
                         languageCount.Korean++;
                     }
-                    if (/áîãìãõè/i.test(phrase) || /¾íµàµíãì/i.test(phrase)) {
+                    if (/แฮร์รี่/i.test(phrase) || /พอตเตอร์/i.test(phrase)) {
                         languageCount.Thai++;
                     }
                 });
@@ -273,9 +273,8 @@ module.exports = (file) => {
 
         function calculateConfidence() {
             const secondLanguage = Object.keys(languageCount).reduce((a, b) => {
-                if (b !== fileInfo.language) {
-                    return languageCount[a] >= languageCount[b] ? a : b;
-                }
+                if (b === fileInfo.language) b = a;
+                return languageCount[a] >= languageCount[b] ? a : b;
             }, 0);
 
             console.log(fileInfo.language, languageCount[fileInfo.language]);
