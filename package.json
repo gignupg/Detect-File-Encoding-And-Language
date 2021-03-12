@@ -1,0 +1,22 @@
+{
+  "name": "detect-file-encoding-and-language",
+  "version": "1.0.0",
+  "description": "An NPM package to detect the encoding and language of a file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gignupg/Detect-File-Encoding-and-Language.git"
+  },
+  "keywords": [
+    "encoding"
+  ],
+  "author": "Linus Komnick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gignupg/Detect-File-Encoding-and-Language/issues"
+  },
+  "homepage": "https://github.com/gignupg/Detect-File-Encoding-and-Language#readme"
+}
