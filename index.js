@@ -53,12 +53,108 @@ module.exports = (file) => {
 
             if (utf8) {
                 const srtSplit = content.split("\n");
+                srtSplit.forEach(phrase => {
+                    if (/się/i.test(phrase)) {
+                        languageCount.Polish++;
+                    }
+                    if (/jsem/i.test(phrase) || /jsi/i.test(phrase)) {
+                        languageCount.Czech++;
+                    }
+                    if (/\snem\s/i.test(phrase)) {
+                        languageCount.Hungarian++;
+                    }
+                    if (/sunt/i.test(phrase) || /eşti/i.test(phrase)) {
+                        languageCount.Romanian++;
+                    }
+                    if (/\sako\s/i.test(phrase) || /poriadku/i.test(phrase) || /myslím/i.test(phrase)) {
+                        languageCount.Slovak++;
+                    }
+                    if (/kaj/i.test(phrase)) {
+                        languageCount.Slovenian++;
+                    }
+                    if (/nuk/i.test(phrase)) {
+                        languageCount.Albanian++;
+                    }
+                    if (/÷òî/i.test(phrase)) {
+                        languageCount.Russian++;
+                    }
+                    if (/â³í/i.test(phrase) || /àëå/i.test(phrase)) {
+                        languageCount.Ukrainian++;
+                    }
+                    if (/това/i.test(phrase) || /какво/i.test(phrase)) {
+                        languageCount.Bulgarian++;
+                    }
+                    if (/\sthe\s/i.test(phrase)) {
+                        languageCount.English++;
+                    }
+                    if (/c'est/i.test(phrase)) {
+                        languageCount.French++;
+                    }
+                    if (/está/i.test(phrase) || /\spor\s/i.test(phrase)) {
+                        languageCount["Spanish/Portuguese"]++;
+                    }
+                    if (/\sdas\s/i.test(phrase)) {
+                        languageCount.German++;
+                    }
+                    if (/\sche/i.test(phrase)) {
+                        languageCount.Italian++;
+                    }
+                    if (/\sdet\s/i.test(phrase)) {
+                        languageCount["Danish/Norwegian/Swedish"]++;
+                    }
+                    if (/\shet\s/i.test(phrase)) {
+                        languageCount.Dutch++;
+                    }
+                    if (/hän/i.test(phrase)) {
+                        languageCount.Finnish++;
+                    }
+                    if (/\ssam\s/i.test(phrase) || /\skako\s/i.test(phrase)) {
+                        languageCount["Croatian/Serbian/Bosnian"]++;
+                    }
+                    if (/see/i.test(phrase)) {
+                        languageCount.Estonian++;
+                    }
+                    if (/Það/i.test(phrase)) {
+                        languageCount.Icelandic++;
+                    }
+                    if (/tidak/i.test(phrase)) {
+                        languageCount.Indonesian++;
+                    }
+                    if (/åßíáé/i.test(phrase)) {
+                        languageCount.Greek++;
+                    }
+                    if (/\sbir\s/i.test(phrase)) {
+                        languageCount.Turkish++;
+                    }
+                    if (/àúä/i.test(phrase)) {
+                        languageCount.Hebrew++;
+                    }
+                    if (/هذا/i.test(phrase)) {
+                        languageCount.Arabic++;
+                    }
+                    if (/个/i.test(phrase) || /人/i.test(phrase)) {
+                        languageCount["Chinese (simplified)"]++;
+                    }
+                    if (/在/i.test(phrase)) {
+                        languageCount["Chinese (traditional)"]++;
+                    }
+                    if (/‚»/i.test(phrase)) {
+                        languageCount.Japanese++;
+                    }
+                    if (/àö¾î/i.test(phrase) || /å¾ß/i.test(phrase) || /¡¼­/i.test(phrase)) {
+                        languageCount.Korean++;
+                    }
+                    if (/áîãìãõè/i.test(phrase) || /¾íµàµíãì/i.test(phrase)) {
+                        languageCount.Thai++;
+                    }
+                });
 
-                fileInfo.language = "no idea";
-                fileInfo.confidence = "0";
+                fileInfo.language = Object.keys(languageCount).reduce((a, b) => languageCount[a] > languageCount[b] ? a : b);
+                fileInfo.confidence = calculateConfidence();
                 fileInfo.encoding = "UTF-8";
 
                 resolve(fileInfo);
+
             } else {
                 const isoReader = new FileReader();
 
@@ -181,6 +277,9 @@ module.exports = (file) => {
                     return languageCount[a] >= languageCount[b] ? a : b;
                 }
             }, 0);
+
+            console.log(fileInfo.language, languageCount[fileInfo.language]);
+            console.log(secondLanguage, languageCount[secondLanguage]);
 
             return Number((1 - (languageCount[secondLanguage] / languageCount[fileInfo.language])).toFixed(2));
         }
