@@ -75,10 +75,10 @@ module.exports = (file) => {
                     if (/nuk/i.test(phrase)) {
                         languageCount.Albanian++;
                     }
-                    if (/÷òî/i.test(phrase)) {
+                    if (/что/i.test(phrase)) {
                         languageCount.Russian++;
                     }
-                    if (/â³í/i.test(phrase) || /àëå/i.test(phrase)) {
+                    if (/він/i.test(phrase) || /але/i.test(phrase)) {
                         languageCount.Ukrainian++;
                     }
                     if (/това/i.test(phrase) || /какво/i.test(phrase)) {
@@ -120,13 +120,13 @@ module.exports = (file) => {
                     if (/tidak/i.test(phrase)) {
                         languageCount.Indonesian++;
                     }
-                    if (/åßíáé/i.test(phrase)) {
+                    if (/είναι/i.test(phrase)) {
                         languageCount.Greek++;
                     }
                     if (/\sbir\s/i.test(phrase)) {
                         languageCount.Turkish++;
                     }
-                    if (/àúä/i.test(phrase)) {
+                    if (/אתה/i.test(phrase)) {
                         languageCount.Hebrew++;
                     }
                     if (/هذا/i.test(phrase)) {
@@ -138,10 +138,10 @@ module.exports = (file) => {
                     if (/在/i.test(phrase)) {
                         languageCount["Chinese (traditional)"]++;
                     }
-                    if (/‚»/i.test(phrase)) {
+                    if (/ど/i.test(phrase)) {
                         languageCount.Japanese++;
                     }
-                    if (/àö¾î/i.test(phrase) || /å¾ß/i.test(phrase) || /¡¼­/i.test(phrase)) {
+                    if (/도/i.test(phrase)) {
                         languageCount.Korean++;
                     }
                     if (/áîãìãõè/i.test(phrase) || /¾íµàµíãì/i.test(phrase)) {
