@@ -15,14 +15,14 @@ npm install detect-file-encoding-and-language
 
 ## Example
 
-```html
+```js
 // index.html
 
 <input type="file" id="my-input-field" >
 
 ```
 
-```javascript
+```js
 // app.js
 
 const languageEncoding = require("detect-file-encoding-and-language");
@@ -32,7 +32,8 @@ document.getElementById("my-input-field").addEventListener("change", inputHandle
 function inputHandler(e) {
     const file = e.target.files[0];
 
-    languageEncoding(file).then(fileInfo => console.log(fileInfo));   // { language: English, encoding: UTF-8, confidence: 1}
+    languageEncoding(file).then(fileInfo => console.log(fileInfo));
+    // Possible result: { language: English, encoding: UTF-8, confidence: 1}
 }
 
 ```
