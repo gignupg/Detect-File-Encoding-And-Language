@@ -15,13 +15,14 @@ module.exports = (file) => {
             Bulgarian: 0,
             English: 0,
             French: 0,
-            "Spanish/Portuguese": 0,
+            Portuguese: 0,
+            Spanish: 0,
             German: 0,
             Italian: 0,
             "Danish/Norwegian/Swedish": 0,
             Dutch: 0,
             Finnish: 0,
-            "Croatian/Serbian/Bosnian": 0,
+            "Serbo-Croatian": 0,
             Estonian: 0,
             Icelandic: 0,
             Indonesian: 0,
@@ -90,13 +91,16 @@ module.exports = (file) => {
                     if (/c'est/i.test(phrase)) {
                         languageCount.French++;
                     }
-                    if (/está/i.test(phrase) || /\spor\s/i.test(phrase)) {
-                        languageCount["Spanish/Portuguese"]++;
+                    if (/\snão\s/i.test(phrase)) {
+                        languageCount.Portuguese++;
+                    }
+                    if (/bien/i.test(phrase) || /siempre/i.test(phrase) || /ahora/i.test(phrase)) {
+                        languageCount.Spanish++;
                     }
                     if (/\sdas\s/i.test(phrase)) {
                         languageCount.German++;
                     }
-                    if (/\sche/i.test(phrase)) {
+                    if (/\sche\s/i.test(phrase)) {
                         languageCount.Italian++;
                     }
                     if (/\sdet\s/i.test(phrase)) {
@@ -109,7 +113,7 @@ module.exports = (file) => {
                         languageCount.Finnish++;
                     }
                     if (/\ssam\s/i.test(phrase) || /\skako\s/i.test(phrase)) {
-                        languageCount["Croatian/Serbian/Bosnian"]++;
+                        languageCount["Serbo-Croatian"]++;
                     }
                     if (/see/i.test(phrase)) {
                         languageCount.Estonian++;
@@ -197,13 +201,16 @@ module.exports = (file) => {
                         if (/c'est/i.test(phrase)) {
                             languageCount.French++;
                         }
-                        if (/está/i.test(phrase) || /\spor\s/i.test(phrase)) {
-                            languageCount["Spanish/Portuguese"]++;
+                        if (/\snão\s/i.test(phrase)) {
+                            languageCount.Portuguese++;
+                        }
+                        if (/bien/i.test(phrase) || /siempre/i.test(phrase) || /ahora/i.test(phrase)) {
+                            languageCount.Spanish++;
                         }
                         if (/\sdas\s/i.test(phrase)) {
                             languageCount.German++;
                         }
-                        if (/\sche/i.test(phrase)) {
+                        if (/\sche\s/i.test(phrase)) {
                             languageCount.Italian++;
                         }
                         if (/\sdet\s/i.test(phrase)) {
@@ -216,7 +223,7 @@ module.exports = (file) => {
                             languageCount.Finnish++;
                         }
                         if (/\ssam\s/i.test(phrase) || /\skako\s/i.test(phrase)) {
-                            languageCount["Croatian/Serbian/Bosnian"]++;
+                            languageCount["Serbo-Croatian"]++;
                         }
                         if (/see/i.test(phrase)) {
                             languageCount.Estonian++;
@@ -300,13 +307,14 @@ module.exports = (file) => {
                         return "CP1251";
                     case "English":
                     case "French":
-                    case "Spanish/Portuguese":
+                    case "Portuguese":
+                    case "Spanish":
                     case "German":
                     case "Italian":
                     case "Danish/Norwegian/Swedish":
                     case "Dutch":
                     case "Finnish":
-                    case "Croatian/Serbian/Bosnian":
+                    case "Serbo-Croatian":
                     case "Estonian":
                     case "Icelandic":
                     case "Indonesian":
