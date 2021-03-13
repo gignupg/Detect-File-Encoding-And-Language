@@ -19,7 +19,9 @@ module.exports = (file) => {
             Spanish: 0,
             German: 0,
             Italian: 0,
-            "Danish/Norwegian/Swedish": 0,
+            Danish: 0,
+            Norwegian: 0,
+            Swedish: 0,
             Dutch: 0,
             Finnish: 0,
             "Serbo-Croatian": 0,
@@ -103,8 +105,14 @@ module.exports = (file) => {
                     if (/\sche\s/i.test(phrase)) {
                         languageCount.Italian++;
                     }
-                    if (/\sdet\s/i.test(phrase)) {
-                        languageCount["Danish/Norwegian/Swedish"]++;
+                    if (/hvad/i.test(phrase) || /noget/i.test(phrase)) {
+                        languageCount.Danish++;
+                    }
+                    if (/deg/i.test(phrase)) {
+                        languageCount.Norwegian++;
+                    }
+                    if (/\sjag\s/i.test(phrase)) {
+                        languageCount.Swedish++;
                     }
                     if (/\shet\s/i.test(phrase)) {
                         languageCount.Dutch++;
@@ -213,8 +221,14 @@ module.exports = (file) => {
                         if (/\sche\s/i.test(phrase)) {
                             languageCount.Italian++;
                         }
-                        if (/\sdet\s/i.test(phrase)) {
-                            languageCount["Danish/Norwegian/Swedish"]++;
+                        if (/hvad/i.test(phrase) || /noget/i.test(phrase)) {
+                            languageCount.Danish++;
+                        }
+                        if (/deg/i.test(phrase)) {
+                            languageCount.Norwegian++;
+                        }
+                        if (/\sjag\s/i.test(phrase)) {
+                            languageCount.Swedish++;
                         }
                         if (/\shet\s/i.test(phrase)) {
                             languageCount.Dutch++;
@@ -287,8 +301,8 @@ module.exports = (file) => {
             console.log(fileInfo.language, languageCount[fileInfo.language]);
             console.log(secondLanguage, languageCount[secondLanguage]);
 
-            return Number((1 - (languageCount[secondLanguage] / languageCount[fileInfo.language])).toFixed(2));
-        }
+            return Number((languageCount[fileInfo.language] / (languageCount[secondLanguage] + languageCount[fileInfo.language])).toFixed(2));
+        };
 
         function detectEncoding(detectedLang) {
             if (languageCount[detectedLang] > 0) {
@@ -311,7 +325,9 @@ module.exports = (file) => {
                     case "Spanish":
                     case "German":
                     case "Italian":
-                    case "Danish/Norwegian/Swedish":
+                    case "Danish":
+                    case "Norwegian":
+                    case "Swedish":
                     case "Dutch":
                     case "Finnish":
                     case "Serbo-Croatian":
