@@ -8,13 +8,15 @@
 7. [License](#license)
 
 ## Functionality
-NPM package to detect the encoding and language of a file.
+Determine the encoding and language of any text file!
 
-* Detects 34 languages and the appropriate encoding
+* Detects 34 languages as well as the appropriate encoding
 * Works best with large inputs
 * Completely free, no API key required
 
-For reliable encoding and language detection, inputs of 500 words or more are recommended. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect. 
+For reliable encoding and language detection, use files containing 500 words or more. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect. 
+
+Feel free to test the functionality of this NPM package here(PASTE THE LINK HERE!). Upload your own files and see if the encoding and language are detected correctly!
 
 ## Installation
 
@@ -108,7 +110,7 @@ The confidence score ranges from 0.5 to 1 and reflects the ratio between the two
 
 If the confidence score is 0.5 you have a one in two chance that the language/encoding has been detected correctly. 
 
-A 0.8 score means that the detected language/encoding had four times more matches than the second highest scoring language/encoding.
+A 0.8 confidence score means that the detected language/encoding had four times more matches than the second highest scoring language/encoding. 
 
 
 ## License

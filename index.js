@@ -298,9 +298,6 @@ module.exports = (file) => {
                 return languageCount[a] >= languageCount[b] ? a : b;
             }, 0);
 
-            console.log(fileInfo.language, languageCount[fileInfo.language]);
-            console.log(secondLanguage, languageCount[secondLanguage]);
-
             return Number((languageCount[fileInfo.language] / (languageCount[secondLanguage] + languageCount[fileInfo.language])).toFixed(2));
         };
 
