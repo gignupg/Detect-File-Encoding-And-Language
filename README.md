@@ -1,4 +1,13 @@
 # Detect-File-Encoding-and-Language
+1. [Functionality](#functionality)
+2. [Installation](#installation)
+3. [Example](#example)
+4. [Supported Languages](#supported-languages)
+5. [Used Encodings](#used-encodings)
+6. [Confidence Score](#confidence-score)
+7. [License](#license)
+
+## Functionality
 NPM package to detect the encoding and language of a file.
 
 * Detects 34 languages and the appropriate encoding
@@ -96,5 +105,14 @@ function inputHandler(e) {
 ## Confidence Score
 
 The confidence score ranges from 0.5 to 1 and reflects the ratio between the two highest scoring languages/encodings. 
+
 If the confidence score is 0.5 you have a one in two chance that the language/encoding has been detected correctly. 
+
 A 0.8 score means that the detected language/encoding had four times more matches than the second highest scoring language/encoding.
+
+
+## License
+
+This project is licensed under the MIT License
+
+![License](https://img.shields.io/badge/License-MIT-yellowgreen)
