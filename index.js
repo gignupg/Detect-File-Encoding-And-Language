@@ -32,8 +32,8 @@ module.exports = (file) => {
             Turkish: 0,
             Hebrew: 0,
             Arabic: 0,
-            "Chinese (simplified)": 0,
-            "Chinese (traditional)": 0,
+            "Chinese-Simplified": 0,
+            "Chinese-Traditional": 0,
             Japanese: 0,
             Korean: 0,
             Thai: 0
@@ -145,10 +145,10 @@ module.exports = (file) => {
                         languageCount.Arabic++;
                     }
                     if (/个/i.test(phrase) || /人/i.test(phrase)) {
-                        languageCount["Chinese (simplified)"]++;
+                        languageCount["Chinese-Simplified"]++;
                     }
                     if (/在/i.test(phrase)) {
-                        languageCount["Chinese (traditional)"]++;
+                        languageCount["Chinese-Traditional"]++;
                     }
                     if (/ど/i.test(phrase)) {
                         languageCount.Japanese++;
@@ -261,10 +261,10 @@ module.exports = (file) => {
                             languageCount.Arabic++;
                         }
                         if (/´ó/i.test(phrase) || /¶¯/i.test(phrase) || /Å®/i.test(phrase)) {
-                            languageCount["Chinese (simplified)"]++;
+                            languageCount["Chinese-Simplified"]++;
                         }
                         if (/¦b/i.test(phrase)) {
-                            languageCount["Chinese (traditional)"]++;
+                            languageCount["Chinese-Traditional"]++;
                         }
                         if (/‚»/i.test(phrase)) {
                             languageCount.Japanese++;
@@ -343,9 +343,9 @@ module.exports = (file) => {
                         return "CP1255";
                     case "Arabic":
                         return "CP1256";
-                    case "Chinese (simplified)":
+                    case "Chinese-Simplified":
                         return "GB18030";
-                    case "Chinese (traditional)":
+                    case "Chinese-Traditional":
                         return "BIG5";
                     case "Japanese":
                         return "Shift-JIS";
