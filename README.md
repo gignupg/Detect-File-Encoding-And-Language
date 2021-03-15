@@ -16,7 +16,7 @@ Determine the encoding and language of any text file!
 
 For reliable encoding and language detection, use files containing 500 words or more. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect. 
 
-Feel free to test the functionality of this NPM package here(PASTE THE LINK HERE!). Upload your own files and see if the encoding and language are detected correctly!
+Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
 ## Installation
 
