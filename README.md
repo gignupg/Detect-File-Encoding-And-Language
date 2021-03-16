@@ -44,47 +44,47 @@ function inputHandler(e) {
     const file = e.target.files[0];
 
     languageEncoding(file).then(fileInfo => console.log(fileInfo));
-    // Possible result: { language: English, encoding: UTF-8, confidence: 0.99}
+    // Possible result: { language: english, encoding: UTF-8, confidence: 0.99}
 }
 
 ```
 
 ## Supported Languages
 
-* Polish
-* Czech
-* Hungarian
-* Romanian
-* Slovak
-* Slovenian
-* Albanian
-* Russian
-* Ukrainian
-* Bulgarian
-* English
-* French
-* Portuguese
-* Spanish
-* German
-* Italian
-* Danish
-* Norwegian
-* Swedish
-* Dutch
-* Finnish
-* Serbo-Croatian
-* Estonian
-* Icelandic
-* Indonesian
-* Greek
-* Turkish
-* Hebrew
-* Arabic
-* Chinese-Simplified
-* Chinese-Traditional
-* Japanese
-* Korean
-* Thai
+* polish
+* czech
+* hungarian
+* romanian
+* slovak
+* slovenian
+* albanian
+* russian
+* ukrainian
+* bulgarian
+* english
+* french
+* portuguese
+* spanish
+* german
+* italian
+* danish
+* norwegian
+* swedish
+* dutch
+* finnish
+* serbo-croatian
+* estonian
+* icelandic
+* indonesian
+* greek
+* turkish
+* hebrew
+* arabic
+* chinese-simplified
+* chinese-traditional
+* japanese
+* korean
+* thai
 
 
 ## Used Encodings
