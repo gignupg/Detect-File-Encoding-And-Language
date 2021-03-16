@@ -68,58 +68,5 @@ module.exports = (file) => {
 
             return Number((language[fileInfo.language] / (language[secondLanguage] + language[fileInfo.language])).toFixed(2));
         };
-
-        function detectEncoding(detectedLang) {
-            if (language[detectedLang] > 0) {
-                switch (detectedLang) {
-                    case "polish":
-                    case "czech":
-                    case "hungarian":
-                    case "romanian":
-                    case "slovak":
-                    case "slovenian":
-                    case "albanian":
-                        return "CP1250";
-                    case "russian":
-                    case "ukrainian":
-                    case "bulgarian":
-                        return "CP1251";
-                    case "english":
-                    case "french":
-                    case "portuguese":
-                    case "spanish":
-                    case "german":
-                    case "italian":
-                    case "danish":
-                    case "norwegian":
-                    case "swedish":
-                    case "dutch":
-                    case "finnish":
-                    case "serbo-croatian":
-                    case "estonian":
-                    case "icelandic":
-                    case "indonesian":
-                        return "CP1252";
-                    case "greek":
-                        return "CP1253";
-                    case "turkish":
-                        return "CP1254";
-                    case "hebrew":
-                        return "CP1255";
-                    case "arabic":
-                        return "CP1256";
-                    case "chinese-simplified":
-                        return "GB18030";
-                    case "chinese-traditional":
-                        return "BIG5";
-                    case "japanese":
-                        return "Shift-JIS";
-                    case "korean":
-                        return "EUC-KR";
-                    case "thai":
-                        return "TIS-620";
-                }
-            }
-        }
     });
 }
