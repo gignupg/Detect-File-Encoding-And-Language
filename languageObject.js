@@ -1,4 +1,4 @@
-const flag = "gi";
+﻿const flag = "gi";
 
 const sharedRegex = {
     czech: new RegExp("jsem|jsi", flag),
