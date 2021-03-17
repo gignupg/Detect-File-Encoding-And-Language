@@ -62,7 +62,7 @@ module.exports = (file) => {
 
             } else {
                 const pos = language.findIndex(elem => elem.name === fileInfo.language);
-                fileInfo.encoding = language[pos].isoEncoding;
+                fileInfo.encoding = language[pos].encoding;
             }
 
             // fileInfo.confidence = calculateConfidence();
