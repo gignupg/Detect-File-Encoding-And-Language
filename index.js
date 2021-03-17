@@ -1,8 +1,10 @@
-module.exports = (file) => {
+﻿module.exports = (file) => {
     return new Promise((resolve, reject) => {
         const fileInfo = {};
         const language = require('./languageObject.js');
         let utf8 = true;
+        let pos = null;
+        const charRegex = new RegExp("", "g");  // d|-|:|;|,|\.|\?|\!|\<|\>|\s|\n|\[|\]|\{|\}|\&|\=|\|
 
         // Making sure to reset the count
         language.forEach(elem => elem.count = 0);
@@ -56,16 +58,18 @@ module.exports = (file) => {
         function sendResponse() {
             fileInfo.language = language.reduce((acc, val) => acc.count > val.count ? acc : val).name;
 
+            // "pos" gives us the position in the language array that has the most matches
+            pos = language.findIndex(elem => elem.name === fileInfo.language);
+
             // Determine the encoding
             if (utf8) {
                 fileInfo.encoding = "UTF-8";
 
             } else {
-                const pos = language.findIndex(elem => elem.name === fileInfo.language);
                 fileInfo.encoding = language[pos].encoding;
             }
 
-            // fileInfo.confidence = calculateConfidence();
+            fileInfo.confidence = calculateConfidenceScore();
 
             // Temporary console log
             const testPos = language.findIndex(elem => elem.name === fileInfo.language);
@@ -74,13 +78,18 @@ module.exports = (file) => {
             resolve(fileInfo);
         }
 
-        function calculateConfidence() {
-            const secondLanguage = Object.keys(language).reduce((a, b) => {
-                if (b === fileInfo.language) b = a;
-                return language[a] >= language[b] ? a : b;
-            }, 0);
+        function calculateConfidenceScore() {
+            const secondLanguage = language.reduce((acc, val) => {
+                if (acc.name === fileInfo.language) return val;
+                if (val.name === fileInfo.language) return acc;
+                return acc.count >= val.count ? acc : val;
+            });
 
-            return Number((language[fileInfo.language] / (language[secondLanguage] + language[fileInfo.language])).toFixed(2));
+            const ratio = Number((language[pos].count / (secondLanguage.count + language[pos].count)).toFixed(2));
+
+            const totalCharacters = 0;
+
+            return ratio;
         };
     });
 }
