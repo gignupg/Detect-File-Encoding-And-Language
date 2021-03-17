@@ -2,9 +2,10 @@
     return new Promise((resolve, reject) => {
         const fileInfo = {};
         const language = require('./languageObject.js');
+        const charRegex = new RegExp(/\d|\n|\s|\-|\.|\,|\:|\;|\?|\!|\<|\>|\[|\]|\{|\}|\&|\=|\|/, "g");
+        let totalCharacters = null;
         let utf8 = true;
         let pos = null;
-        const charRegex = new RegExp("", "g");  // d|-|:|;|,|\.|\?|\!|\<|\>|\s|\n|\[|\]|\{|\}|\&|\=|\|
 
         // Making sure to reset the count
         language.forEach(elem => elem.count = 0);
@@ -47,12 +48,14 @@
         utfReader.onerror = reject;
         utfReader.readAsText(file, "UTF-8");
 
-        function findMatches(reader, regex) {
+        function findMatches(content, regex) {
             language.forEach(lang => {
-                const matches = reader.match(lang[regex]);
+                const matches = content.match(lang[regex]);
 
                 if (matches) lang.count = matches.length;
             });
+
+            totalCharacters = content.replace(charRegex, "").length;
         }
 
         function sendResponse() {
@@ -87,7 +90,7 @@
 
             const ratio = Number((language[pos].count / (secondLanguage.count + language[pos].count)).toFixed(2));
 
-            const totalCharacters = 0;
+            console.log(totalCharacters);
 
             return ratio;
         };

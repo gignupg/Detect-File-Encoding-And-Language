@@ -1,35 +1,35 @@
 ﻿const flag = "gi";
 
 const sharedRegex = {
-    czech: new RegExp("jsem|jsi", flag),
-    hungarian: new RegExp(" nem ", flag),
-    slovak: new RegExp(" ako |poriadku|myslím", flag),
-    slovenian: new RegExp("kaj", flag),
-    albanian: new RegExp("nuk", flag),
-    english: new RegExp(" the ", flag),
-    french: new RegExp("c'est", flag),
-    portuguese: new RegExp(" não ", flag),
-    spanish: new RegExp("bien|siempre|ahora", flag),
-    german: new RegExp(" das ", flag),
-    italian: new RegExp(" che ", flag),
-    danish: new RegExp("hvad|noget", flag),
-    norwegian: new RegExp("deg", flag),
-    swedish: new RegExp(" jag ", flag),
-    dutch: new RegExp(" het ", flag),
-    finnish: new RegExp("hän", flag),
-    "serbo-croatian": new RegExp(" sam | kako ", flag),
-    estonian: new RegExp("see", flag),
-    icelandic: new RegExp("Það", flag),
-    indonesian: new RegExp("tidak", flag),
-    turkish: new RegExp(" bir ", flag),
+    czech: new RegExp(/jsem|jsi/, flag),
+    hungarian: new RegExp(/\snem\s/, flag),
+    slovak: new RegExp(/\sako\s|poriadku|myslím/, flag),
+    slovenian: new RegExp(/kaj/, flag),
+    albanian: new RegExp(/nuk/, flag),
+    english: new RegExp(/\sthe\s/, flag),
+    french: new RegExp(/c'est/, flag),
+    portuguese: new RegExp(/\snão\s/, flag),
+    spanish: new RegExp(/bien|siempre|ahora/, flag),
+    german: new RegExp(/\sdas\s/, flag),
+    italian: new RegExp(/\sche\s/, flag),
+    danish: new RegExp(/hvad|noget/, flag),
+    norwegian: new RegExp(/deg/, flag),
+    swedish: new RegExp(/\sjag\s/, flag),
+    dutch: new RegExp(/\shet\s/, flag),
+    finnish: new RegExp(/hän/, flag),
+    "serbo-croatian": new RegExp(/\ssam\s|\skako\s/, flag),
+    estonian: new RegExp(/see/, flag),
+    icelandic: new RegExp(/Það/, flag),
+    indonesian: new RegExp(/tidak/, flag),
+    turkish: new RegExp(/\sbir\s/, flag),
 };
 
 module.exports = [
     {
         name: "polish",
         count: 0,
-        utfRegex: new RegExp("się", flag),
-        isoRegex: new RegExp("siê", flag),
+        utfRegex: new RegExp(/się/, flag),
+        isoRegex: new RegExp(/siê/, flag),
         encoding: "CP1250"
     },
     {
@@ -49,8 +49,8 @@ module.exports = [
     {
         name: "romanian",
         count: 0,
-        utfRegex: new RegExp("sunt|eşti", flag),
-        isoRegex: new RegExp("sunt|eºti", flag),
+        utfRegex: new RegExp(/sunt|eşti/, flag),
+        isoRegex: new RegExp(/sunt|eºti/, flag),
         encoding: "CP1250"
     },
     {
@@ -77,22 +77,22 @@ module.exports = [
     {
         name: "russian",
         count: 0,
-        utfRegex: new RegExp("что", flag),
-        isoRegex: new RegExp("÷òî", flag),
+        utfRegex: new RegExp(/что/, flag),
+        isoRegex: new RegExp(/÷òî/, flag),
         encoding: "CP1251"
     },
     {
         name: "ukrainian",
         count: 0,
-        utfRegex: new RegExp("він|але", flag),
-        isoRegex: new RegExp("â³í|àëå", flag),
+        utfRegex: new RegExp(/він|але/, flag),
+        isoRegex: new RegExp(/â³í|àëå/, flag),
         encoding: "CP1251"
     },
     {
         name: "bulgarian",
         count: 0,
-        utfRegex: new RegExp("това|какво", flag),
-        isoRegex: new RegExp("òîâà|äîáðå|êaêâo", flag),
+        utfRegex: new RegExp(/това|какво/, flag),
+        isoRegex: new RegExp(/òîâà|äîáðå|êaêâo/, flag),
         encoding: "CP1251"
     },
     {
@@ -203,8 +203,8 @@ module.exports = [
     {
         name: "greek",
         count: 0,
-        utfRegex: new RegExp("είναι", flag),
-        isoRegex: new RegExp("åßíáé", flag),
+        utfRegex: new RegExp(/είναι/, flag),
+        isoRegex: new RegExp(/åßíáé/, flag),
         encoding: "CP1253"
     },
     {
@@ -217,50 +217,50 @@ module.exports = [
     {
         name: "hebrew",
         count: 0,
-        utfRegex: new RegExp("אתה", flag),
-        isoRegex: new RegExp("àúä", flag),
+        utfRegex: new RegExp(/אתה/, flag),
+        isoRegex: new RegExp(/àúä/, flag),
         encoding: "CP1255"
     },
     {
         name: "arabic",
         count: 0,
-        utfRegex: new RegExp("هذا", flag),
-        isoRegex: new RegExp("åðç", flag),
+        utfRegex: new RegExp(/هذا/, flag),
+        isoRegex: new RegExp(/åðç/, flag),
         encoding: "CP1256"
     },
     {
         name: "chinese-simplified",
         count: 0,
-        utfRegex: new RegExp("个|人", flag),
-        isoRegex: new RegExp("´ó|¶¯|Å®", flag),
+        utfRegex: new RegExp(/个|人/, flag),
+        isoRegex: new RegExp(/´ó|¶¯|Å®/, flag),
         encoding: "GB18030"
     },
     {
         name: "chinese-traditional",
         count: 0,
-        utfRegex: new RegExp("在", flag),
-        isoRegex: new RegExp("¦b", flag),
+        utfRegex: new RegExp(/在/, flag),
+        isoRegex: new RegExp(/¦b/, flag),
         encoding: "BIG5"
     },
     {
         name: "japanese",
         count: 0,
-        utfRegex: new RegExp("ど", flag),
-        isoRegex: new RegExp("‚»", flag),
+        utfRegex: new RegExp(/ど/, flag),
+        isoRegex: new RegExp(/‚»/, flag),
         encoding: "Shift-JIS"
     },
     {
         name: "korean",
         count: 0,
-        utfRegex: new RegExp("도", flag),
-        isoRegex: new RegExp("àö¾î|å¾ß|¡¼­", flag),
+        utfRegex: new RegExp(/도/, flag),
+        isoRegex: new RegExp(/àö¾î|å¾ß|¡¼­/, flag),
         encoding: "EUC-KR"
     },
     {
         name: "thai",
         count: 0,
-        utfRegex: new RegExp("แฮร์รี่|พอตเตอร์", flag),
-        isoRegex: new RegExp("áîãìãõè|¾íµàµíãì­", flag),
+        utfRegex: new RegExp(/แฮร์รี่|พอตเตอร์/, flag),
+        isoRegex: new RegExp(/áîãìãõè|¾íµàµíãì­/, flag),
         encoding: "TIS-620"
     }
 ];
