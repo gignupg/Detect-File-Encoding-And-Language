@@ -25,7 +25,28 @@ const sharedRegex = {
 };
 
 const sharedFrequency = {
-    polish: { low: 0.004355, high: 0.005102 }
+    polish: { low: 0.004355, high: 0.005102 },
+    czech: { low: 0.004433, high: 0.007324 },
+    hungarian: { low: 0.004994, high: 0.005183 },
+    slovak: { low: 0.003319, high: 0.004190 },
+    slovenian: { low: 0.004388, high: 0.006711 },
+    albanian: { low: 0.003773, high: 0.007313 },
+    english: { low: 0.004679, high: 0.007580 },
+    french: { low: 0.003016, high: 0.004825 },
+    portuguese: { low: 0.003406, high: 0.005032 },
+    spanish: { low: 0.002373, high: 0.002452 },
+    german: { low: 0.004044, high: 0.004391 },
+    italian: { low: 0.003889, high: 0.005175 },
+    danish: { low: 0.003630, high: 0.004189 },
+    norwegian: { low: 0.002410, high: 0.003918 },
+    swedish: { low: 0.004916, high: 0.007221 },
+    dutch: { low: 0.003501, high: 0.004150 },
+    finnish: { low: 0.003308, high: 0.005135 },
+    "serbo-croatian": { low: 0.002568, high: 0.005182 },
+    estonian: { low: 0.003930, high: 0.005062 },
+    icelandic: { low: 0.004366, high: 0.004366 },
+    indonesian: { low: 0.002825, high: 0.002825 },
+    turkish: { low: 0.002915, high: 0.004588 },
 };
 
 module.exports = [
@@ -44,7 +65,8 @@ module.exports = [
         utfRegex: sharedRegex.czech,
         isoRegex: sharedRegex.czech,
         encoding: "CP1250",
-        utfFrequency: { low: 0.004433, high: 0.007324 }
+        utfFrequency: sharedFrequency.czech,
+        isoFrequency: sharedFrequency.czech
     },
     {
         name: "hungarian",
@@ -52,7 +74,8 @@ module.exports = [
         utfRegex: sharedRegex.hungarian,
         isoRegex: sharedRegex.hungarian,
         encoding: "CP1250",
-        utfFrequency: { low: 0.004994, high: 0.005183 }
+        utfFrequency: sharedFrequency.hungarian,
+        isoFrequency: sharedFrequency.hungarian
     },
     {
         name: "romanian",
@@ -68,7 +91,8 @@ module.exports = [
         utfRegex: sharedRegex.slovak,
         isoRegex: sharedRegex.slovak,
         encoding: "CP1250",
-        utfFrequency: { low: 0.002691, high: 0.003665 }
+        utfFrequency: sharedFrequency.slovak,
+        isoFrequency: sharedFrequency.slovak
     },
     {
         name: "slovenian",
@@ -76,7 +100,8 @@ module.exports = [
         utfRegex: sharedRegex.slovenian,
         isoRegex: sharedRegex.slovenian,
         encoding: "CP1250",
-        utfFrequency: { low: 0.004388, high: 0.006711 }
+        utfFrequency: sharedFrequency.slovenian,
+        isoFrequency: sharedFrequency.slovenian
     },
     {
         name: "albanian",
@@ -84,7 +109,8 @@ module.exports = [
         utfRegex: sharedRegex.albanian,
         isoRegex: sharedRegex.albanian,
         encoding: "CP1250",
-        utfFrequency: { low: 0.003773, high: 0.007313 }
+        utfFrequency: sharedFrequency.albanian,
+        isoFrequency: sharedFrequency.albanian
     },
     {
         name: "russian",
@@ -116,7 +142,8 @@ module.exports = [
         utfRegex: sharedRegex.english,
         isoRegex: sharedRegex.english,
         encoding: "CP1252",
-        utfFrequency: { low: 0.004679, high: 0.007580 }
+        utfFrequency: sharedFrequency.english,
+        isoFrequency: sharedFrequency.english
     },
     {
         name: "french",
@@ -124,7 +151,8 @@ module.exports = [
         utfRegex: sharedRegex.french,
         isoRegex: sharedRegex.french,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003016, high: 0.004825 }
+        utfFrequency: sharedFrequency.french,
+        isoFrequency: sharedFrequency.french
     },
     {
         name: "portuguese",
@@ -132,7 +160,8 @@ module.exports = [
         utfRegex: sharedRegex.portuguese,
         isoRegex: sharedRegex.portuguese,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003406, high: 0.005032 }
+        utfFrequency: sharedFrequency.portuguese,
+        isoFrequency: sharedFrequency.portuguese
     },
     {
         name: "spanish",
@@ -140,7 +169,8 @@ module.exports = [
         utfRegex: sharedRegex.spanish,
         isoRegex: sharedRegex.spanish,
         encoding: "CP1252",
-        utfFrequency: { low: 0.002373, high: 0.002452 }
+        utfFrequency: sharedFrequency.spanish,
+        isoFrequency: sharedFrequency.spanish
     },
     {
         name: "german",
@@ -148,7 +178,8 @@ module.exports = [
         utfRegex: sharedRegex.german,
         isoRegex: sharedRegex.german,
         encoding: "CP1252",
-        utfFrequency: { low: 0.004044, high: 0.004391 }
+        utfFrequency: sharedFrequency.german,
+        isoFrequency: sharedFrequency.german
     },
     {
         name: "italian",
@@ -156,7 +187,8 @@ module.exports = [
         utfRegex: sharedRegex.italian,
         isoRegex: sharedRegex.italian,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003889, high: 0.005175 }
+        utfFrequency: sharedFrequency.italian,
+        isoFrequency: sharedFrequency.italian
     },
     {
         name: "danish",
@@ -164,7 +196,8 @@ module.exports = [
         utfRegex: sharedRegex.danish,
         isoRegex: sharedRegex.danish,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003630, high: 0.004189 }
+        utfFrequency: sharedFrequency.danish,
+        isoFrequency: sharedFrequency.danish
     },
     {
         name: "norwegian",
@@ -172,7 +205,8 @@ module.exports = [
         utfRegex: sharedRegex.norwegian,
         isoRegex: sharedRegex.norwegian,
         encoding: "CP1252",
-        utfFrequency: { low: 0.002410, high: 0.003918 }
+        utfFrequency: sharedFrequency.norwegian,
+        isoFrequency: sharedFrequency.norwegian
     },
     {
         name: "swedish",
@@ -180,7 +214,8 @@ module.exports = [
         utfRegex: sharedRegex.swedish,
         isoRegex: sharedRegex.swedish,
         encoding: "CP1252",
-        utfFrequency: { low: 0.004916, high: 0.007221 }
+        utfFrequency: sharedFrequency.swedish,
+        isoFrequency: sharedFrequency.swedish
     },
     {
         name: "dutch",
@@ -188,7 +223,8 @@ module.exports = [
         utfRegex: sharedRegex.dutch,
         isoRegex: sharedRegex.dutch,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003501, high: 0.004150 }
+        utfFrequency: sharedFrequency.dutch,
+        isoFrequency: sharedFrequency.dutch
     },
     {
         name: "finnish",
@@ -196,7 +232,8 @@ module.exports = [
         utfRegex: sharedRegex.finnish,
         isoRegex: sharedRegex.finnish,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003308, high: 0.005135 }
+        utfFrequency: sharedFrequency.finnish,
+        isoFrequency: sharedFrequency.finnish
     },
     {
         name: "serbo-croatian",
@@ -204,7 +241,8 @@ module.exports = [
         utfRegex: sharedRegex["serbo-croatian"],
         isoRegex: sharedRegex["serbo-croatian"],
         encoding: "CP1252",
-        utfFrequency: { low: 0.002568, high: 0.005182 }
+        utfFrequency: sharedFrequency["serbo-croatian"],
+        isoFrequency: sharedFrequency["serbo-croatian"]
     },
     {
         name: "estonian",
@@ -212,7 +250,8 @@ module.exports = [
         utfRegex: sharedRegex.estonian,
         isoRegex: sharedRegex.estonian,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003930, high: 0.005062 }
+        utfFrequency: sharedFrequency.estonian,
+        isoFrequency: sharedFrequency.estonian
     },
     {
         name: "icelandic",
@@ -220,7 +259,8 @@ module.exports = [
         utfRegex: sharedRegex.icelandic,
         isoRegex: sharedRegex.icelandic,
         encoding: "CP1252",
-        utfFrequency: { low: 0.003930, high: 0.005062 }
+        utfFrequency: sharedFrequency.icelandic,
+        isoFrequency: sharedFrequency.icelandic
     },
     {
         name: "indonesian",
@@ -228,7 +268,8 @@ module.exports = [
         utfRegex: sharedRegex.indonesian,
         isoRegex: sharedRegex.indonesian,
         encoding: "CP1252",
-        utfFrequency: { low: 0.002825, high: 0.002825 }
+        utfFrequency: sharedFrequency.indonesian,
+        isoFrequency: sharedFrequency.indonesian
     },
     {
         name: "greek",
@@ -244,7 +285,8 @@ module.exports = [
         utfRegex: sharedRegex.turkish,
         isoRegex: sharedRegex.turkish,
         encoding: "CP1254",
-        utfFrequency: { low: 0.002915, high: 0.004588 }
+        utfFrequency: sharedFrequency.turkish,
+        isoFrequency: sharedFrequency.turkish
     },
     {
         name: "hebrew",
