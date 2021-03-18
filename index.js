@@ -65,18 +65,9 @@
             pos = language.findIndex(elem => elem.name === fileInfo.language);
 
             // Determine the encoding
-            if (utf8) {
-                fileInfo.encoding = "UTF-8";
-
-            } else {
-                fileInfo.encoding = language[pos].encoding;
-            }
+            fileInfo.encoding = utf8 ? "UTF-8" : language[pos].encoding;
 
             fileInfo.confidence = calculateConfidenceScore();
-
-            // Temporary console log
-            const testPos = language.findIndex(elem => elem.name === fileInfo.language);
-            console.log(fileInfo.language, language[testPos].count);
 
             resolve(fileInfo);
         }
@@ -88,11 +79,37 @@
                 return acc.count >= val.count ? acc : val;
             });
 
-            const ratio = Number((language[pos].count / (secondLanguage.count + language[pos].count)).toFixed(2));
+            const languageRatio = language[pos].count / (secondLanguage.count + language[pos].count);
+            const characterWordRatio = language[pos].count / totalCharacters;
+            console.log(languageRatio);
+            console.log(characterWordRatio.toFixed(6));
 
-            console.log(totalCharacters);
+            let lowerLimit = null;
+            let upperLimit = null;
+            const multiplier = 0.8;
 
-            return ratio;
+            if (utf8) {
+                lowerLimit = language[pos].utfFrequency.low * multiplier;
+                upperLimit = (language[pos].utfFrequency.low + language[pos].utfFrequency.high) / 2;
+
+            } else {
+                lowerLimit = language[pos].isoFrequency.low * multiplier;
+                upperLimit = (language[pos].isoFrequency.low + language[pos].isoFrequency.high) / 2;
+            }
+
+            if (characterWordRatio >= upperLimit) {
+                return 1;
+
+            } else if (characterWordRatio > lowerLimit) {
+                const range = upperLimit - lowerLimit;
+                const surplus = characterWordRatio - lowerLimit;
+                const confidenceRaisePercentage = surplus / range;
+                const confidenceRaise = (1 - languageRatio) * confidenceRaisePercentage;
+                return Number((languageRatio + confidenceRaise).toFixed(2));
+
+            } else {
+                return Number((languageRatio * (characterWordRatio / lowerLimit)).toFixed(2));
+            }
         };
     });
 }
