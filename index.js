@@ -83,6 +83,8 @@
             const characterWordRatio = language[pos].count / totalCharacters;
             console.log(languageRatio);
             console.log(characterWordRatio.toFixed(6));
+            console.log(totalCharacters);
+            console.log(language[pos].count);
 
             let lowerLimit = null;
             let upperLimit = null;
