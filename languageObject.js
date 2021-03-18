@@ -22,6 +22,7 @@ const sharedRegex = {
     icelandic: new RegExp(/Það/, flag),
     indonesian: new RegExp(/tidak/, flag),
     turkish: new RegExp(/ bir /, flag),
+    lithuanian: new RegExp(/\skad\s|\stai\s/, flag)
 };
 
 const sharedFrequency = {
@@ -50,7 +51,8 @@ const sharedFrequency = {
     indonesian: { low: 0.002825, high: 0.002825 },
     greek: { low: 0.003440, high: 0.004862 },
     turkish: { low: 0.002915, high: 0.004588 },
-    hebrew: { low: 0.003663, high: 0.004666 }
+    hebrew: { low: 0.003663, high: 0.004666 },
+    lithuanian: { low: 0.004417, high: 0.005266 }
 };
 
 module.exports = [
@@ -316,6 +318,15 @@ module.exports = [
         isoFrequency: { low: 0.003773, high: 0.005559 }
     },
     {
+        name: "lithuanian",
+        count: 0,
+        utfRegex: sharedRegex.lithuanian,
+        isoRegex: sharedRegex.lithuanian,
+        encoding: "CP1257",
+        utfFrequency: sharedFrequency.lithuanian,
+        isoFrequency: sharedFrequency.lithuanian
+    },
+    {
         name: "chinese-simplified",
         count: 0,
         utfRegex: new RegExp(/个|人/, flag),
@@ -359,5 +370,17 @@ module.exports = [
         encoding: "TIS-620",
         utfFrequency: { low: 0.003194, high: 0.003468 },
         isoFrequency: { low: 0.002091, high: 0.002303 }
+    },
+    {
+        name: "bengali",
+        count: 0,
+        utfRegex: new RegExp(/এটা/, flag),
+        utfFrequency: { low: 0.003155, high: 0.005236 },
+    },
+    {
+        name: "hindi",
+        count: 0,
+        utfRegex: new RegExp(/हैं/, flag),
+        utfFrequency: { low: 0.004159, high: 0.006478 },
     }
 ];

@@ -69,6 +69,12 @@
 
             fileInfo.confidence = calculateConfidenceScore();
 
+            if (!language[pos].count) {
+                fileInfo.language = null;
+                fileInfo.encoding = utf8 ? "UTF-8" : null;
+                fileInfo.confidence = utf8 ? 1 : null;
+            }
+
             resolve(fileInfo);
         }
 
