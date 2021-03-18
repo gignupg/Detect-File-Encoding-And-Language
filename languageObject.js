@@ -28,9 +28,11 @@ const sharedFrequency = {
     polish: { low: 0.004355, high: 0.005102 },
     czech: { low: 0.004433, high: 0.007324 },
     hungarian: { low: 0.004994, high: 0.005183 },
-    slovak: { low: 0.003319, high: 0.004190 },
+    romanian: { low: 0.003319, high: 0.004190 },
+    slovak: { low: 0.002691, high: 0.003665 },
     slovenian: { low: 0.004388, high: 0.006711 },
     albanian: { low: 0.003773, high: 0.007313 },
+    ukrainian: { low: 0.002933, high: 0.005389 },
     english: { low: 0.004679, high: 0.007580 },
     french: { low: 0.003016, high: 0.004825 },
     portuguese: { low: 0.003406, high: 0.005032 },
@@ -46,7 +48,9 @@ const sharedFrequency = {
     estonian: { low: 0.003930, high: 0.005062 },
     icelandic: { low: 0.004366, high: 0.004366 },
     indonesian: { low: 0.002825, high: 0.002825 },
+    greek: { low: 0.003440, high: 0.004862 },
     turkish: { low: 0.002915, high: 0.004588 },
+    hebrew: { low: 0.003663, high: 0.004666 }
 };
 
 module.exports = [
@@ -83,7 +87,8 @@ module.exports = [
         utfRegex: new RegExp(/sunt|eşti/, flag),
         isoRegex: new RegExp(/sunt|eºti/, flag),
         encoding: "CP1250",
-        utfFrequency: { low: 0.003319, high: 0.004190 }
+        utfFrequency: sharedFrequency.romanian,
+        isoFrequency: sharedFrequency.romanian
     },
     {
         name: "slovak",
@@ -118,7 +123,8 @@ module.exports = [
         utfRegex: new RegExp(/что/, flag),
         isoRegex: new RegExp(/÷òî/, flag),
         encoding: "CP1251",
-        utfFrequency: { low: 0.004965, high: 0.005341 }
+        utfFrequency: { low: 0.004965, high: 0.005341 },
+        isoFrequency: { low: 0.003884, high: 0.003986 }
     },
     {
         name: "ukrainian",
@@ -126,7 +132,8 @@ module.exports = [
         utfRegex: new RegExp(/він|але/, flag),
         isoRegex: new RegExp(/â³í|àëå/, flag),
         encoding: "CP1251",
-        utfFrequency: { low: 0.002933, high: 0.005389 }
+        utfFrequency: sharedFrequency.ukrainian,
+        isoFrequency: sharedFrequency.ukrainian
     },
     {
         name: "bulgarian",
@@ -134,7 +141,8 @@ module.exports = [
         utfRegex: new RegExp(/това|какво/, flag),
         isoRegex: new RegExp(/òîâà|äîáðå|êaêâo/, flag),
         encoding: "CP1251",
-        utfFrequency: { low: 0.005225, high: 0.005628 }
+        utfFrequency: { low: 0.005225, high: 0.005628 },
+        isoFrequency: { low: 0.002767, high: 0.004951 }
     },
     {
         name: "english",
@@ -277,7 +285,8 @@ module.exports = [
         utfRegex: new RegExp(/είναι/, flag),
         isoRegex: new RegExp(/åßíáé/, flag),
         encoding: "CP1253",
-        utfFrequency: { low: 0.003440, high: 0.004059 }
+        utfFrequency: sharedFrequency.greek,
+        isoFrequency: sharedFrequency.greek
     },
     {
         name: "turkish",
@@ -294,7 +303,8 @@ module.exports = [
         utfRegex: new RegExp(/אתה/, flag),
         isoRegex: new RegExp(/àúä/, flag),
         encoding: "CP1255",
-        utfFrequency: { low: 0.003663, high: 0.004631 }
+        utfFrequency: sharedFrequency.hebrew,
+        isoFrequency: sharedFrequency.hebrew
     },
     {
         name: "arabic",
@@ -302,7 +312,8 @@ module.exports = [
         utfRegex: new RegExp(/هذا/, flag),
         isoRegex: new RegExp(/åðç/, flag),
         encoding: "CP1256",
-        utfFrequency: { low: 0.003522, high: 0.004348 }
+        utfFrequency: { low: 0.003522, high: 0.004348 },
+        isoFrequency: { low: 0.003773, high: 0.005559 }
     },
     {
         name: "chinese-simplified",
@@ -310,7 +321,8 @@ module.exports = [
         utfRegex: new RegExp(/个|人/, flag),
         isoRegex: new RegExp(/´ó|¶¯|Å®/, flag),
         encoding: "GB18030",
-        utfFrequency: { low: 0.012153, high: 0.014129 }
+        utfFrequency: { low: 0.012153, high: 0.014129 },
+        isoFrequency: { low: 0.003137, high: 0.005009 }
     },
     {
         name: "chinese-traditional",
@@ -318,7 +330,8 @@ module.exports = [
         utfRegex: new RegExp(/在/, flag),
         isoRegex: new RegExp(/¦b/, flag),
         encoding: "BIG5",
-        utfFrequency: { low: 0.009762, high: 0.011494 }
+        utfFrequency: { low: 0.009762, high: 0.011494 },
+        isoFrequency: { low: 0.005063, high: 0.005822 }
     },
     {
         name: "japanese",
@@ -326,7 +339,8 @@ module.exports = [
         utfRegex: new RegExp(/ど/, flag),
         isoRegex: new RegExp(/‚»/, flag),
         encoding: "Shift-JIS",
-        utfFrequency: { low: 0.004257, high: 0.006585 }
+        utfFrequency: { low: 0.004257, high: 0.006585 },
+        isoFrequency: { low: 0.004286, high: 0.004653 }
     },
     {
         name: "korean",
@@ -334,7 +348,8 @@ module.exports = [
         utfRegex: new RegExp(/도/, flag),
         isoRegex: new RegExp(/àö¾î|å¾ß|¡¼­/, flag),
         encoding: "EUC-KR",
-        utfFrequency: { low: 0.010910, high: 0.013670 }
+        utfFrequency: { low: 0.010910, high: 0.013670 },
+        isoFrequency: { low: 0.004118, high: 0.004961 }
     },
     {
         name: "thai",
@@ -342,6 +357,7 @@ module.exports = [
         utfRegex: new RegExp(/แฮร์รี่|พอตเตอร์/, flag),
         isoRegex: new RegExp(/áîãìãõè|¾íµàµíãì­/, flag),
         encoding: "TIS-620",
-        utfFrequency: { low: 0.003194, high: 0.003468 }
+        utfFrequency: { low: 0.003194, high: 0.003468 },
+        isoFrequency: { low: 0.002091, high: 0.002303 }
     }
 ];
