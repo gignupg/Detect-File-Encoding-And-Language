@@ -10,7 +10,7 @@
 ## Functionality
 Determine the encoding and language of any text file!
 
-* Detects 34 languages as well as the appropriate encoding
+* Detects 40 languages as well as the appropriate encoding
 * Works best with large inputs
 * Completely free, no API key required
 
@@ -75,16 +75,22 @@ function inputHandler(e) {
 * serbo-croatian
 * estonian
 * icelandic
-* indonesian
+* malay-indonesian
 * greek
 * turkish
 * hebrew
 * arabic
+* farsi-persian
+* lithuanian
 * chinese-simplified
 * chinese-traditional
 * japanese
 * korean
 * thai
+* bengali
+* hindi
+* urdu
+* vietnamese
 
 
 ## Used Encodings
@@ -97,6 +103,7 @@ function inputHandler(e) {
 * CP1254
 * CP1255
 * CP1256
+* CP1257
 * GB18030
 * BIG5
 * Shift-JIS
