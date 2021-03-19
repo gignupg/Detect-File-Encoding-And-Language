@@ -20,7 +20,7 @@ const sharedRegex = {
     "serbo-croatian": new RegExp(/ sam | kako /, flag),
     estonian: new RegExp(/see/, flag),
     icelandic: new RegExp(/Það/, flag),
-    indonesian: new RegExp(/tidak/, flag),
+    "malay-indonesian": new RegExp(/tidak/, flag),
     turkish: new RegExp(/ bir /, flag),
     lithuanian: new RegExp(/\skad\s|\stai\s/, flag)
 };
@@ -48,7 +48,7 @@ const sharedFrequency = {
     "serbo-croatian": { low: 0.002568, high: 0.005182 },
     estonian: { low: 0.003930, high: 0.005062 },
     icelandic: { low: 0.004366, high: 0.004366 },
-    indonesian: { low: 0.002825, high: 0.002825 },
+    "malay-indonesian": { low: 0.002825, high: 0.003932 },
     greek: { low: 0.003440, high: 0.004862 },
     turkish: { low: 0.002915, high: 0.004588 },
     hebrew: { low: 0.003663, high: 0.004666 },
@@ -273,13 +273,13 @@ module.exports = [
         isoFrequency: sharedFrequency.icelandic
     },
     {
-        name: "indonesian",
+        name: "malay-indonesian",
         count: 0,
-        utfRegex: sharedRegex.indonesian,
-        isoRegex: sharedRegex.indonesian,
+        utfRegex: sharedRegex["malay-indonesian"],
+        isoRegex: sharedRegex["malay-indonesian"],
         encoding: "CP1252",
-        utfFrequency: sharedFrequency.indonesian,
-        isoFrequency: sharedFrequency.indonesian
+        utfFrequency: sharedFrequency["malay-indonesian"],
+        isoFrequency: sharedFrequency["malay-indonesian"]
     },
     {
         name: "greek",
@@ -316,6 +316,15 @@ module.exports = [
         encoding: "CP1256",
         utfFrequency: { low: 0.003522, high: 0.004348 },
         isoFrequency: { low: 0.003773, high: 0.005559 }
+    },
+    {
+        name: "farsi-persian",
+        count: 0,
+        utfRegex: new RegExp(/اون/, flag),
+        isoRegex: new RegExp(/çíä/, flag),
+        encoding: "CP1256",
+        utfFrequency: { low: 0.002761, high: 0.004856 },
+        isoFrequency: { low: 0.003010, high: 0.006646 }
     },
     {
         name: "lithuanian",
