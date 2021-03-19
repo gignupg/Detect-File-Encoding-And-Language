@@ -391,5 +391,17 @@ module.exports = [
         count: 0,
         utfRegex: new RegExp(/हैं/, flag),
         utfFrequency: { low: 0.004159, high: 0.006478 },
-    }
+    },
+    {
+        name: "urdu",
+        count: 0,
+        utfRegex: new RegExp(/ایک/, flag),
+        utfFrequency: { low: 0.004118, high: 0.005851 }
+    },
+    {
+        name: "vietnamese",
+        count: 0,
+        utfRegex: new RegExp(/ không /, flag),
+        utfFrequency: { low: 0.003387, high: 0.005191 }
+    },
 ];
