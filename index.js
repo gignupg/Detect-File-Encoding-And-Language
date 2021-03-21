@@ -1,65 +1,88 @@
-﻿module.exports = (file) => {
+﻿module.exports = (file, test) => {
     return new Promise((resolve, reject) => {
         const fileInfo = {};
-        const language = require('./languageObject.js');
+        const languageArr = require('./languageObject.js');
         const charRegex = new RegExp(/\d|\n|\s|\-|\.|\,|\:|\;|\?|\!|\<|\>|\[|\]|\{|\}|\&|\=|\|/, "g");
         let totalCharacters = null;
         let utf8 = true;
         let pos = null;
 
-        // Making sure to reset the count
-        language.forEach(elem => elem.count = 0);
+        const language = [];
 
-        const utfReader = new FileReader();
-
-        utfReader.onload = () => {
-            const utfContent = utfReader.result;
-
-            for (let b = 0; b < utfContent.length; b++) {
-                // If � is encountered it's definitely not utf8!
-                if (utfContent[b] === "�") {
-                    utf8 = false;
-                    break;
+        // Cloning the language array and making sure that "count" has no reference to "languageArr"!
+        languageArr.forEach((obj) => {
+            const newObject = {};
+            Object.keys(obj).forEach(key => {
+                if (key !== "count") {
+                    newObject[key] = obj[key];
+                } else {
+                    newObject.count = 0;
                 }
-            }
+            });
+            language.push(newObject);
+        });
 
-            if (utf8) {
-                // Counting how many matches we can find for each language
-                findMatches(utfContent, "utfRegex");
+        if (typeof file === "string") {
+            // The request comes from a Nodejs environment
+            const fs = require('fs');
 
-                sendResponse();
+            fs.readFile(file, "UTF-8", (err, utfContent) => {
+                utf8 = checkUTF(utfContent);
 
-            } else {
-                const isoReader = new FileReader();
+                if (utf8) {
+                    processContent(utfContent);
 
-                isoReader.onload = () => {
-                    const isoContent = isoReader.result;
-                    // Counting how many matches we can find for each language
-                    findMatches(isoContent, "isoRegex");
-
-                    sendResponse();
-                };
-
-                isoReader.onerror = reject;
-                isoReader.readAsText(file, "ISO-8859-1");
-            }
-        };
-
-        utfReader.onerror = reject;
-        utfReader.readAsText(file, "UTF-8");
-
-        function findMatches(content, regex) {
-            language.forEach(lang => {
-                const matches = content.match(lang[regex]);
-
-                if (matches) lang.count = matches.length;
+                } else {
+                    fs.readFile(file, "latin1", (err, isoContent) => {
+                        processContent(isoContent);
+                    });
+                }
             });
 
-            totalCharacters = content.replace(charRegex, "").length;
+        } else if (typeof file === "object") {
+            // The request comes from the browser
+            const utfReader = new FileReader();
+
+            utfReader.onload = () => {
+                const utfContent = utfReader.result;
+
+                utf8 = checkUTF(utfContent);
+
+                if (utf8) {
+                    processContent(utfContent);
+
+                } else {
+                    const isoReader = new FileReader();
+
+                    isoReader.onload = () => {
+                        const isoContent = isoReader.result;
+                        processContent(isoContent);
+                    };
+
+                    isoReader.readAsText(file, "ISO-8859-1");
+                }
+            };
+
+            utfReader.readAsText(file, "UTF-8");
+
+        } else {
+            reject("Unrecognized input! Please make sure your input is valid!");
         }
 
-        function sendResponse() {
-            fileInfo.language = language.reduce((acc, val) => acc.count > val.count ? acc : val).name;
+        function checkUTF(content) {
+            for (let b = 0; b < content.length; b++) {
+                // If � is encountered it's definitely not utf8!
+                if (content[b] === "�") {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function processContent(content) {
+            totalCharacters = content.replace(charRegex, "").length;
+
+            fileInfo.language = determineLanguage(content);
 
             // "pos" gives us the position in the language array that has the most matches
             pos = language.findIndex(elem => elem.name === fileInfo.language);
@@ -69,6 +92,12 @@
 
             fileInfo.confidence = calculateConfidenceScore();
 
+            if (fileInfo.confidence.ratio) {
+                resolve(fileInfo.confidence);
+                return null;
+            }
+
+            // Edge case, when no matches were found
             if (!language[pos].count) {
                 fileInfo.language = null;
                 fileInfo.encoding = utf8 ? "UTF-8" : null;
@@ -78,34 +107,60 @@
             resolve(fileInfo);
         }
 
+        function determineLanguage(content) {
+            const regex = utf8 ? "utfRegex" : "isoRegex";
+
+            // Populate the count property of our language array!
+            language.forEach(lang => {
+                if (lang[regex]) {
+                    const matches = content.match(lang[regex]);
+
+                    if (matches) lang.count = matches.length;
+                }
+            });
+
+            return language.reduce((acc, val) => acc.count > val.count ? acc : val).name;
+        }
+
         function calculateConfidenceScore() {
             const secondLanguage = language.reduce((acc, val) => {
                 if (acc.name === fileInfo.language) return val;
                 if (val.name === fileInfo.language) return acc;
+
                 return acc.count >= val.count ? acc : val;
             });
 
             const languageRatio = language[pos].count / (secondLanguage.count + language[pos].count);
+
+            if (typeof file === "string" && test) {
+                // Returning the ratio, the encoding and the last part of the pathname (the file name)
+                return ({
+                    ratio: Number(languageRatio.toFixed(2)),
+                    encoding: utf8 ? "UTF" : "ISO",
+                    language: fileInfo.language,
+                    name: file.substr(file.lastIndexOf('/') + 1)
+                });
+            }
+
             const characterWordRatio = language[pos].count / totalCharacters;
-            console.log(languageRatio);
-            console.log(characterWordRatio.toFixed(6));
-            console.log(totalCharacters);
-            console.log(language[pos].count);
 
             let lowerLimit = null;
             let upperLimit = null;
             const multiplier = 0.8;
 
             if (utf8) {
-                lowerLimit = language[pos].utfFrequency.low * multiplier;
-                upperLimit = (language[pos].utfFrequency.low + language[pos].utfFrequency.high) / 2;
+                lowerLimit = language[pos].utfFrequency ? language[pos].utfFrequency.low * multiplier : null;
+                upperLimit = language[pos].utfFrequency ? (language[pos].utfFrequency.low + language[pos].utfFrequency.high) / 2 : null;
 
             } else {
-                lowerLimit = language[pos].isoFrequency.low * multiplier;
-                upperLimit = (language[pos].isoFrequency.low + language[pos].isoFrequency.high) / 2;
+                lowerLimit = language[pos].isoFrequency ? language[pos].isoFrequency.low * multiplier : null;
+                upperLimit = language[pos].isoFrequency ? (language[pos].isoFrequency.low + language[pos].isoFrequency.high) / 2 : null;
             }
 
-            if (characterWordRatio >= upperLimit) {
+            if (!lowerLimit || !upperLimit) {
+                return null;
+
+            } else if (characterWordRatio >= upperLimit) {
                 return 1;
 
             } else if (characterWordRatio > lowerLimit) {
