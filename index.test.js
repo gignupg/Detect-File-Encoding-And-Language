@@ -2,30 +2,19 @@ const languageEncoding = require("./index.js");
 const fs = require('fs');
 
 const folderPath = "/home/gignu/Documents/Subtitle Database/Language Folders/";
-// const fileName = "Harry.Potter.and.the.Sorcerers.Stone.2001.1080p.720p.BluRay.x264. YTS.MX-Farsipersian.srt";
-
-// languageEncoding(folderPath + fileName, true)
-//     .then(fileInfo => {
-//         console.log(fileInfo);
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });;
-
-
 const testFiles = getFiles(folderPath);
 
 testFiles.forEach((file) => {
     languageEncoding(file, true)
         .then(fileInfo => {
             if (fileInfo.ratio <= 0.8) {
+                console.log("Test case failed:");
                 console.log(fileInfo);
-                throw new Error("Language ratio too low! Most likely a regex problem!");
+                process.exit(1);
             }
         })
-        .catch(error => { throw new Error(error); });
+        .catch(error => { console.log(error); });
 });
-
 
 // Recursively find all files in a folder and all it's subdirectories
 function getFiles(dir, files_) {

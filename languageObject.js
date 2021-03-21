@@ -18,7 +18,7 @@ const sharedRegex = {
     dutch: new RegExp(/ het /, flag),
     finnish: new RegExp(/hän/, flag),
     "serbo-croatian": new RegExp(/ sam | kako /, flag),
-    estonian: new RegExp(/see/, flag),
+    estonian: new RegExp(/\sseda\s|\spole\s|midagi/, flag),
     icelandic: new RegExp(/Það/, flag),
     "malay-indonesian": new RegExp(/tidak/, flag),
     turkish: new RegExp(/ bir /, flag),
@@ -46,7 +46,7 @@ const sharedFrequency = {
     dutch: { low: 0.003501, high: 0.004150 },
     finnish: { low: 0.003308, high: 0.005135 },
     "serbo-croatian": { low: 0.002568, high: 0.005182 },
-    estonian: { low: 0.003930, high: 0.005062 },
+    estonian: { low: 0.002892, high: 0.003963 },
     icelandic: { low: 0.004366, high: 0.004366 },
     "malay-indonesian": { low: 0.002825, high: 0.003932 },
     greek: { low: 0.003440, high: 0.004862 },
@@ -338,19 +338,19 @@ module.exports = [
     {
         name: "chinese-simplified",
         count: 0,
-        utfRegex: new RegExp(/个|人/, flag),
+        utfRegex: new RegExp(/么/, flag),
         isoRegex: new RegExp(/´ó|¶¯|Å®/, flag),
         encoding: "GB18030",
-        utfFrequency: { low: 0.012153, high: 0.014129 },
+        utfFrequency: { low: 0.009567, high: 0.011502 },
         isoFrequency: { low: 0.003137, high: 0.005009 }
     },
     {
         name: "chinese-traditional",
         count: 0,
-        utfRegex: new RegExp(/在/, flag),
+        utfRegex: new RegExp(/們/, flag),
         isoRegex: new RegExp(/¦b/, flag),
         encoding: "BIG5",
-        utfFrequency: { low: 0.009762, high: 0.011494 },
+        utfFrequency: { low: 0.012484, high: 0.014964 },
         isoFrequency: { low: 0.005063, high: 0.005822 }
     },
     {

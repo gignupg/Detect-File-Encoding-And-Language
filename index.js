@@ -131,18 +131,28 @@
             });
 
             const languageRatio = language[pos].count / (secondLanguage.count + language[pos].count);
+            const characterWordRatio = language[pos].count / totalCharacters;
 
             if (typeof file === "string" && test) {
                 // Returning the ratio, the encoding and the last part of the pathname (the file name)
-                return ({
-                    ratio: Number(languageRatio.toFixed(2)),
-                    encoding: utf8 ? "UTF" : "ISO",
+                return {
+                    name: file.substr(file.lastIndexOf('/') + 1),
+                    path: file,
                     language: fileInfo.language,
-                    name: file.substr(file.lastIndexOf('/') + 1)
-                });
+                    encoding: utf8 ? "UTF" : "ISO",
+                    ratio: Number(languageRatio.toFixed(2)),
+                    count: language[pos].count,
+                    totalCharacters: totalCharacters,
+                    characterWordRatio: characterWordRatio.toFixed(6),
+                    secondLanguage: {
+                        name: secondLanguage.name,
+                        count: secondLanguage.count
+                    }
+                };
             }
 
-            const characterWordRatio = language[pos].count / totalCharacters;
+            console.log(language.pos);
+            console.log(characterWordRatio);
 
             let lowerLimit = null;
             let upperLimit = null;
