@@ -22,7 +22,7 @@ const sharedRegex = {
     icelandic: new RegExp(/Það/, flag),
     "malay-indonesian": new RegExp(/tidak/, flag),
     turkish: new RegExp(/ bir /, flag),
-    lithuanian: new RegExp(/\skad\s|\stai\s/, flag)
+    lithuanian: new RegExp(/taip|\stai\s/, flag)
 };
 
 const sharedFrequency = {
@@ -52,7 +52,7 @@ const sharedFrequency = {
     greek: { low: 0.003440, high: 0.004862 },
     turkish: { low: 0.002915, high: 0.004588 },
     hebrew: { low: 0.003663, high: 0.004666 },
-    lithuanian: { low: 0.004417, high: 0.005266 }
+    lithuanian: { low: 0.003277, high: 0.003768 }
 };
 
 module.exports = [
