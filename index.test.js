@@ -7,7 +7,7 @@ const testFiles = getFiles(folderPath);
 testFiles.forEach((file) => {
     languageEncoding(file, true)
         .then(fileInfo => {
-            if (fileInfo.ratio <= 0.8) {
+            if (fileInfo.ratio <= 0.85) {
                 console.log("Test case failed:");
                 console.log(fileInfo);
                 process.exit(1);

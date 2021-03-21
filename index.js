@@ -151,9 +151,6 @@
                 };
             }
 
-            console.log(language.pos);
-            console.log(characterWordRatio);
-
             let lowerLimit = null;
             let upperLimit = null;
             const multiplier = 0.8;
