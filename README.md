@@ -1,8 +1,8 @@
 # Detect-File-Encoding-and-Language
 1. [Functionality](#functionality)
 2. [Installation](#installation)
-3. [Usage (in the browser)](#usage (in the browser))
-4. [Usage (in Node.js)](#usage (in node.js))
+3. [Usage (in the browser)](#usage-in-the-browser)
+4. [Usage (in Node.js)](#usage-in-node.js))
 5. [Supported Languages](#supported-languages)
 6. [Used Encodings](#used-encodings)
 7. [Confidence Score](#confidence-score)
