@@ -130,6 +130,9 @@ languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. 
 
 
+## Known Issues
+* Unable to detect Shift-JIS encoded japanese text files when using Node.js. In the browser it works fine! 
+
 ## License
 
 This project is licensed under the MIT License
