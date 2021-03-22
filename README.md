@@ -1,11 +1,12 @@
 # Detect-File-Encoding-and-Language
 1. [Functionality](#functionality)
 2. [Installation](#installation)
-3. [Example](#example)
-4. [Supported Languages](#supported-languages)
-5. [Used Encodings](#used-encodings)
-6. [Confidence Score](#confidence-score)
-7. [License](#license)
+3. [Usage (in the browser)](#usage (in the browser))
+4. [Usage (in Node.js)](#usage (in node.js))
+5. [Supported Languages](#supported-languages)
+6. [Used Encodings](#used-encodings)
+7. [Confidence Score](#confidence-score)
+8. [License](#license)
 
 ## Functionality
 Determine the encoding and language of any text file!
