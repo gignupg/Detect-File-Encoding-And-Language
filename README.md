@@ -130,5 +130,7 @@ The confidence score ranges from 0 to 1. It is based on the amount of matches th
 
 
 ## License
+
 This project is licensed under the MIT License
+
 ![License](https://img.shields.io/badge/License-MIT-yellowgreen)
