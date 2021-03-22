@@ -6,7 +6,8 @@
 5. [Supported Languages](#supported-languages)
 6. [Used Encodings](#used-encodings)
 7. [Confidence Score](#confidence-score)
-8. [License](#license)
+8. [Known Issues](#known-issues)
+9. [License](#license)
 
 ## Functionality
 Determine the encoding and language of any text file!
