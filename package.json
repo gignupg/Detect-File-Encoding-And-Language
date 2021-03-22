@@ -8,15 +8,17 @@
     "test": "node index.test.js",
     "prepublishOnly": "npm test"
   },
-  "bin": {
-    "hello": "./bin/cli.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gignupg/Detect-File-Encoding-and-Language.git"
   },
   "keywords": [
-    "encoding"
+    "detect-encoding",
+    "detect-language",
+    "file-encoding",
+    "file-language",
+    "encoding-detector",
+    "language-detector"
   ],
   "author": "Linus Komnick",
   "license": "MIT",
