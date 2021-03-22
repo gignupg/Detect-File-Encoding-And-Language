@@ -24,7 +24,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
 npm install detect-file-encoding-and-language
 ```
 
-## Example
+## Usage (in the browser)
 
 ```js
 // index.html
@@ -44,8 +44,22 @@ function inputHandler(e) {
     const file = e.target.files[0];
 
     languageEncoding(file).then(fileInfo => console.log(fileInfo));
-    // Possible result: { language: english, encoding: UTF-8, confidence: 0.99}
+    // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
 }
+
+```
+
+## Usage (in Node.js)
+
+```js
+// index.js
+
+const languageEncoding = require("detect-file-encoding-and-language");
+
+const pathToFile = "/home/username/documents/my-text-file.txt"
+
+languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
+// Possible result: { language: japanese, encoding: Shift-JIS, confidence: 1 }
 
 ```
 
@@ -112,16 +126,9 @@ function inputHandler(e) {
 
 
 ## Confidence Score
-
-The confidence score ranges from 0.5 to 1 and reflects the ratio between the two highest scoring languages/encodings. 
-
-If the confidence score is 0.5 you have a one in two chance that the language/encoding has been detected correctly. 
-
-A 0.8 confidence score means that the detected language/encoding had four times more matches than the second highest scoring language/encoding. 
+The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. 
 
 
 ## License
-
 This project is licensed under the MIT License
-
 ![License](https://img.shields.io/badge/License-MIT-yellowgreen)

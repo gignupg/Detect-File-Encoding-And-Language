@@ -1,12 +1,15 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "1.0.6",
+  "version": "1.5.0",
   "description": "An NPM package to detect the encoding and language of a file",
   "main": "index.js",
   "scripts": {
     "regextest": "node regexTester.test.js",
     "test": "node index.test.js",
     "prepublishOnly": "npm test"
+  },
+  "bin": {
+    "hello": "./bin/cli.js"
   },
   "repository": {
     "type": "git",
