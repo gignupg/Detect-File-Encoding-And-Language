@@ -132,7 +132,7 @@ The confidence score ranges from 0 to 1. It is based on the amount of matches th
 
 
 ## Known Issues
-* Unable to detect Shift-JIS encoded Japanese text files when using Node.js. In the browser it works great! 
+* Unable to detect Shift-JIS encoded Japanese text files when using Node.js 
 
 ## License
 
