@@ -22,7 +22,11 @@ const sharedRegex = {
     icelandic: new RegExp(/Það/, flag),
     "malay-indonesian": new RegExp(/tidak/, flag),
     turkish: new RegExp(/ bir /, flag),
-    lithuanian: new RegExp(/taip|\stai\s/, flag)
+    lithuanian: new RegExp(/taip|\stai\s/, flag),
+    bengali: new RegExp(/এটা/, flag),
+    hindi: new RegExp(/हैं/, flag),
+    urdu: new RegExp(/ایک/, flag),
+    vietnamese: new RegExp(/ không /, flag)
 };
 
 const sharedFrequency = {
@@ -52,7 +56,11 @@ const sharedFrequency = {
     greek: { low: 0.003440, high: 0.004862 },
     turkish: { low: 0.002915, high: 0.004588 },
     hebrew: { low: 0.003663, high: 0.004666 },
-    lithuanian: { low: 0.003277, high: 0.003768 }
+    lithuanian: { low: 0.003277, high: 0.003768 },
+    bengali: { low: 0.003155, high: 0.005236 },
+    hindi: { low: 0.004159, high: 0.006478 },
+    urdu: { low: 0.004118, high: 0.005851 },
+    vietnamese: { low: 0.003387, high: 0.005191 }
 };
 
 module.exports = [
@@ -383,25 +391,33 @@ module.exports = [
     {
         name: "bengali",
         count: 0,
-        utfRegex: new RegExp(/এটা/, flag),
-        utfFrequency: { low: 0.003155, high: 0.005236 },
+        utfRegex: sharedRegex.bengali,
+        isoRegex: sharedRegex.bengali,
+        utfFrequency: sharedFrequency.bengali,
+        isoFrequency: sharedFrequency.bengali
     },
     {
         name: "hindi",
         count: 0,
-        utfRegex: new RegExp(/हैं/, flag),
-        utfFrequency: { low: 0.004159, high: 0.006478 },
+        utfRegex: sharedRegex.hindi,
+        isoRegex: sharedRegex.hindi,
+        utfFrequency: sharedFrequency.hindi,
+        isoFrequency: sharedFrequency.hindi
     },
     {
         name: "urdu",
         count: 0,
-        utfRegex: new RegExp(/ایک/, flag),
-        utfFrequency: { low: 0.004118, high: 0.005851 }
+        utfRegex: sharedRegex.urdu,
+        isoRegex: sharedRegex.urdu,
+        utfFrequency: sharedFrequency.urdu,
+        isoFrequency: sharedFrequency.urdu
     },
     {
         name: "vietnamese",
         count: 0,
-        utfRegex: new RegExp(/ không /, flag),
-        utfFrequency: { low: 0.003387, high: 0.005191 }
+        utfRegex: sharedRegex.vietnamese,
+        isoRegex: sharedRegex.vietnamese,
+        utfFrequency: sharedFrequency.vietnamese,
+        isoFrequency: sharedFrequency.vietnamese
     },
 ];

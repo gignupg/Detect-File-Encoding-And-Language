@@ -26,7 +26,7 @@
             // The request comes from a Nodejs environment
             const fs = require('fs');
 
-            fs.readFile(file, "UTF-8", (err, utfContent) => {
+            fs.readFile(file, "UTF-8", (err, utfContent) => {   //    // For Bengali either: "utf16le" or "ucs2"
                 utf8 = checkUTF(utfContent);
 
                 if (utf8) {
@@ -92,10 +92,8 @@
 
             fileInfo.confidence = calculateConfidenceScore();
 
-            if (fileInfo.confidence.ratio) {
-                resolve(fileInfo.confidence);
-                return null;
-            }
+            // If the test script is running
+            if (typeof file === "string" && test) return null;
 
             // Edge case, when no matches were found
             if (!language[pos].count) {
@@ -133,24 +131,6 @@
             const languageRatio = language[pos].count / (secondLanguage.count + language[pos].count);
             const characterWordRatio = language[pos].count / totalCharacters;
 
-            if (typeof file === "string" && test) {
-                // Returning the ratio, the encoding and the last part of the pathname (the file name)
-                return {
-                    name: file.substr(file.lastIndexOf('/') + 1),
-                    path: file,
-                    language: fileInfo.language,
-                    encoding: utf8 ? "UTF" : "ISO",
-                    ratio: Number(languageRatio.toFixed(2)),
-                    count: language[pos].count,
-                    totalCharacters: totalCharacters,
-                    characterWordRatio: characterWordRatio.toFixed(6),
-                    secondLanguage: {
-                        name: secondLanguage.name,
-                        count: secondLanguage.count
-                    }
-                };
-            }
-
             let lowerLimit = null;
             let upperLimit = null;
             const multiplier = 0.8;
@@ -164,22 +144,47 @@
                 upperLimit = language[pos].isoFrequency ? (language[pos].isoFrequency.low + language[pos].isoFrequency.high) / 2 : null;
             }
 
+            let confidenceScore;
+
             if (!lowerLimit || !upperLimit) {
-                return null;
+                confidenceScore = null;
 
             } else if (characterWordRatio >= upperLimit) {
-                return 1;
+                confidenceScore = 1;
 
             } else if (characterWordRatio > lowerLimit) {
                 const range = upperLimit - lowerLimit;
                 const surplus = characterWordRatio - lowerLimit;
                 const confidenceRaisePercentage = surplus / range;
                 const confidenceRaise = (1 - languageRatio) * confidenceRaisePercentage;
-                return Number((languageRatio + confidenceRaise).toFixed(2));
+                confidenceScore = Number((languageRatio + confidenceRaise).toFixed(2));
 
             } else {
-                return Number((languageRatio * (characterWordRatio / lowerLimit)).toFixed(2));
+                confidenceScore = Number((languageRatio * (characterWordRatio / lowerLimit)).toFixed(2));
             }
+
+            // If the test script is running
+            if (typeof file === "string" && test) {
+                resolve({
+                    name: file.substr(file.lastIndexOf('/') + 1),
+                    path: file,
+                    language: fileInfo.language,
+                    encoding: utf8 ? "UTF" : "ISO",
+                    confidence: confidenceScore,
+                    ratio: Number(languageRatio.toFixed(2)),
+                    count: language[pos].count,
+                    totalCharacters: totalCharacters,
+                    characterWordRatio: characterWordRatio.toFixed(6),
+                    secondLanguage: {
+                        name: secondLanguage.name,
+                        count: secondLanguage.count
+                    }
+                });
+
+                return null;
+            }
+
+            return confidenceScore;
         };
     });
 }

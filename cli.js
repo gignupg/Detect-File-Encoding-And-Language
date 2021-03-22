@@ -6,7 +6,7 @@ const tooManyArguments = process.argv[3];
 
 if (tooManyArguments) console.log('Error! Too many arguments passed in. Only one argument can be passed in. If your path or file name contain spaces, try to surround the whole file path with quotes!');
 
-languageEncoding(path, true)
+languageEncoding(path)
     .then(fileInfo => {
         console.log(fileInfo);
     })
