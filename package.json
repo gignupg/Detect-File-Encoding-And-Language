@@ -1,6 +1,6 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "An NPM package to detect the encoding and language of a file",
   "main": "index.js",
   "scripts": {
