@@ -2,6 +2,7 @@
 
 [![NPM stats](https://nodei.co/npm/detect-file-encoding-and-language.svg?downloadRank=true&downloads=true)](https://www.npmjs.org/package/detect-file-encoding-and-language)
 
+## Index
 1. [Functionality](#functionality)
 2. [Installation](#installation)
 3. [Usage (in the browser)](#usage-in-the-browser)
