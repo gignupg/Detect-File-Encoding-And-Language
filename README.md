@@ -1,17 +1,22 @@
 # Detect-File-Encoding-and-Language
-
 [![NPM stats](https://nodei.co/npm/detect-file-encoding-and-language.svg?downloadRank=true&downloads=true)](https://www.npmjs.org/package/detect-file-encoding-and-language)
 
 ## Index
-1. [Functionality](#functionality)
-2. [Installation](#installation)
-3. [Usage (in the browser)](#usage-in-the-browser)
-4. [Usage (in Node.js)](#usage-in-nodejs)
-5. [Supported Languages](#supported-languages)
-6. [Used Encodings](#used-encodings)
-7. [Confidence Score](#confidence-score)
-8. [Known Issues](#known-issues)
-9. [License](#license)
+- [Detect-File-Encoding-and-Language](#detect-file-encoding-and-language)
+  * [Index](#index)
+  * [Functionality](#functionality)
+  * [Usage (Javascript)](#usage--javascript-)
+    + [Installation](#installation)
+    + [In the browser](#in-the-browser)
+    + [In Node.js](#in-nodejs)
+  * [Usage (CLI)](#usage--cli-)
+    + [Installation](#installation-1)
+    + [In the terminal](#in-the-terminal)
+  * [Supported Languages](#supported-languages)
+  * [Used Encodings](#used-encodings)
+  * [Confidence Score](#confidence-score)
+  * [Known Issues](#known-issues)
+  * [License](#license)
 
 ## Functionality
 Determine the encoding and language of any text file!
@@ -24,14 +29,14 @@ For reliable encoding and language detection, use files containing 500 words or 
 
 Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
-## Installation
+## Usage (Javascript)
 
+### Installation
 ```
 npm install detect-file-encoding-and-language
 ```
 
-## Usage (in the browser)
-
+### In the browser
 ```js
 // index.html
 
@@ -52,11 +57,9 @@ function inputHandler(e) {
     languageEncoding(file).then(fileInfo => console.log(fileInfo));
     // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
 }
-
 ```
 
-## Usage (in Node.js)
-
+### In Node.js
 ```js
 // index.js
 
@@ -66,11 +69,31 @@ const pathToFile = "/home/username/documents/my-text-file.txt"
 
 languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 // Possible result: { language: japanese, encoding: Shift-JIS, confidence: 1 }
+```
 
+## Usage (CLI)
+
+### Installation
+```
+npm install -g detect-file-encoding-and-language
+```
+
+### In the terminal
+Use "dfeal" to execute detect-file-encoding-and-language from the command line!
+
+```
+dfeal "/home/user name/Documents/subtitle file.srt"
+// Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
+```
+
+or without quotation marks, using backslashes to escape spaces:
+
+```
+dfeal /home/user\ name/Documents/subtitle\ file.srt
+// Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
 ```
 
 ## Supported Languages
-
 * polish
 * czech
 * hungarian
@@ -112,9 +135,7 @@ languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 * urdu
 * vietnamese
 
-
 ## Used Encodings
-
 * UTF-8
 * CP1250
 * CP1251
@@ -130,13 +151,12 @@ languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 * EUC-KR
 * TIS-620
 
-
 ## Confidence Score
 The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. 
 
-
 ## Known Issues
-* Unable to detect Shift-JIS encoded Japanese text files when using Node.js 
+* Unable to detect Shift-JIS encoded Japanese text files when using Node.js. Solutions are welcome!
+* Unable to detect UTF-16-LE encoded files when using Node.js. Solutions are welcome!
 
 ## License
 
