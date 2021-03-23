@@ -1,6 +1,6 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "An NPM package to detect the encoding and language of a file",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,9 @@
   },
   "browser": {
     "fs": false
+  },
+  "bin": {
+    "dfeal": "./bin/cli.js"
   },
   "repository": {
     "type": "git",
