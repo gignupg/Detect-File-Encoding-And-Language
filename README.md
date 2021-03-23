@@ -32,8 +32,8 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
 ## Usage (Javascript)
 
 ### Installation
-```
-npm install detect-file-encoding-and-language
+```bash
+$ npm install detect-file-encoding-and-language
 ```
 
 ### In the browser
@@ -74,23 +74,23 @@ languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 ## Usage (CLI)
 
 ### Installation
-```
-npm install -g detect-file-encoding-and-language
+```bash
+$ npm install -g detect-file-encoding-and-language
 ```
 
 ### In the terminal
 Use "dfeal" to execute detect-file-encoding-and-language from the command line!
 
-```
-dfeal "/home/user name/Documents/subtitle file.srt"
-// Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
+```bash
+$ dfeal "/home/user name/Documents/subtitle file.srt"
+# Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
 ```
 
 or without quotation marks, using backslashes to escape spaces:
 
-```
-dfeal /home/user\ name/Documents/subtitle\ file.srt
-// Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
+```bash
+$ dfeal /home/user\ name/Documents/subtitle\ file.srt
+# Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
 ```
 
 ## Supported Languages
