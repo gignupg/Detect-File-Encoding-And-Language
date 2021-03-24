@@ -1,10 +1,23 @@
 # Detect-File-Encoding-and-Language
+![npm](https://img.shields.io/npm/dw/detect-file-encoding-and-language)
+
 [![NPM stats](https://nodei.co/npm/detect-file-encoding-and-language.svg?downloadRank=true&downloads=true)](https://www.npmjs.org/package/detect-file-encoding-and-language)
+
+## Functionality
+Determine the encoding and language of any text file!
+
+* Detects 40 languages as well as the appropriate encoding
+* Works best with large inputs
+* Completely free, no API key required
+
+For reliable encoding and language detection, use files containing 500 words or more. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect. 
+
+Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
 ## Index
 - [Detect-File-Encoding-and-Language](#detect-file-encoding-and-language)
-  * [Index](#index)
   * [Functionality](#functionality)
+  * [Index](#index)
   * [Usage (Javascript)](#usage-javascript)
     + [Installation](#installation)
     + [In the browser](#in-the-browser)
@@ -17,17 +30,6 @@
   * [Confidence Score](#confidence-score)
   * [Known Issues](#known-issues)
   * [License](#license)
-
-## Functionality
-Determine the encoding and language of any text file!
-
-* Detects 40 languages as well as the appropriate encoding
-* Works best with large inputs
-* Completely free, no API key required
-
-For reliable encoding and language detection, use files containing 500 words or more. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect. 
-
-Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
 ## Usage (Javascript)
 
