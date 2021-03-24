@@ -1,6 +1,6 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "description": "An NPM package to detect the encoding and language of a file",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,9 @@
     "file-encoding",
     "file-language",
     "encoding-detector",
-    "language-detector"
+    "language-detector",
+    "encoding-detection",
+    "language-detection"
   ],
   "author": "Linus Komnick",
   "license": "MIT",
