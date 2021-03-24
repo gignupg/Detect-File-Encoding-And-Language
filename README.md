@@ -1,6 +1,7 @@
 # Detect-File-Encoding-and-Language
 ![npm](https://img.shields.io/npm/dw/detect-file-encoding-and-language)
 ![npm](https://img.shields.io/npm/v/detect-file-encoding-and-language)
+
 [![NPM stats](https://nodei.co/npm/detect-file-encoding-and-language.svg?downloadRank=true&downloads=true)](https://www.npmjs.org/package/detect-file-encoding-and-language)
 
 ## Functionality
