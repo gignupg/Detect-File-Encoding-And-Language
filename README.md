@@ -64,6 +64,8 @@ function inputHandler(e) {
 }
 ```
 
+Note: This should work fine with frameworks such as React but if you're using pure vanilla Javascript make sure to use a bundler such as Browserify!
+
 ### In Node.js
 ```js
 // index.js
