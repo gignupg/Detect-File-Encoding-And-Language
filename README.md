@@ -42,13 +42,14 @@ $ npm install detect-file-encoding-and-language
 ```
 
 ### In the browser
-> Note: This should work fine with frameworks such as React but if you're using pure vanilla Javascript make sure to use a bundler such as Browserify!
 ```js
 // index.html
 
 <input type="file" id="my-input-field" >
 
 ```
+
+> Note: This should work fine with frameworks such as React but if you're using pure vanilla Javascript make sure to use a bundler such as Browserify!
 
 ```js
 // app.js
