@@ -159,7 +159,7 @@ $ dfeal /home/user\ name/Documents/subtitle\ file.srt
 * TIS-620
 
 ## Confidence Score
-The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how exactly it works check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
+The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how it all works check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
 
 ## Known Issues
 * Unable to detect Shift-JIS encoded Japanese text files when using Node.js. Solutions are welcome!
