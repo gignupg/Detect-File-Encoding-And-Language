@@ -85,7 +85,7 @@ $ npm install -g detect-file-encoding-and-language
 ```
 
 ### In the terminal
-Use the command `dfeal` then specify the path to your file!
+Use the command `dfeal` to retrieve the encoding and language of your file: 
 
 ```bash
 $ dfeal "/home/user name/Documents/subtitle file.srt"
