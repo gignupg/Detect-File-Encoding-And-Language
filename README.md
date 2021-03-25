@@ -42,6 +42,7 @@ $ npm install detect-file-encoding-and-language
 ```
 
 ### In the browser
+> Note: This should work fine with frameworks such as React but if you're using pure vanilla Javascript make sure to use a bundler such as Browserify!
 ```js
 // index.html
 
@@ -63,8 +64,6 @@ function inputHandler(e) {
     // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
 }
 ```
-
-> Note: This should work fine with frameworks such as React but if you're using pure vanilla Javascript make sure to use a bundler such as Browserify!
 
 ### In Node.js
 ```js
