@@ -1,4 +1,4 @@
-const languageEncoding = require("./index.js");
+const languageEncoding = require("../index-node.js");
 
 const path = process.argv[2];
 

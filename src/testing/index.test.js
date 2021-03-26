@@ -1,4 +1,4 @@
-const languageEncoding = require("./index.js");
+const languageEncoding = require("../index-node.js");
 const fs = require('fs');
 
 const folderPath = "/home/gignu/Documents/Subtitle Database/Language Folders/";

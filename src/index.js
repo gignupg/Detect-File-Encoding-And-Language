@@ -1,7 +1,7 @@
 ﻿module.exports = (file, test) => {
     return new Promise((resolve, reject) => {
         const fileInfo = {};
-        const languageArr = require('./languageObject.js');
+        const languageArr = require('./language-config/languageObject.js');
         const charRegex = new RegExp(/\d|\n|\s|\-|\.|\,|\:|\;|\?|\!|\<|\>|\[|\]|\{|\}|\&|\=|\|/, "g");
         let totalCharacters = null;
         let utf8 = true;
@@ -26,8 +26,10 @@
             // The request comes from a Nodejs environment
             const fs = require('fs');
 
-            fs.readFile(file, "UTF-8", (err, utfContent) => {   //    // For Bengali either: "utf16le" or "ucs2"
+            fs.readFile(file, "UTF-8", (err, utfContent) => {
                 utf8 = checkUTF(utfContent);
+
+                console.log('utf8:', utf8);
 
                 if (utf8) {
                     processContent(utfContent);
