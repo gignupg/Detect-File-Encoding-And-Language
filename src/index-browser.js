@@ -3,7 +3,7 @@ const processContent = require('./components/processContent.js');
 
 module.exports = (file, test) => {
     return new Promise((resolve, reject) => {
-        const input = {};
+        const data = {};
         const utfReader = new FileReader();
 
         utfReader.onerror = (err) => {
@@ -13,18 +13,18 @@ module.exports = (file, test) => {
         utfReader.onload = () => {
             const utfContent = utfReader.result;
 
-            input.utf8 = checkUTF(utfContent);
+            data.utf8 = checkUTF(utfContent);
 
-            if (utf8) {
-                input.content = utfContent;
-                resolve(processContent(input));
+            if (data.utf8) {
+                data.content = utfContent;
+                resolve(processContent(data));
 
             } else {
                 const isoReader = new FileReader();
 
                 isoReader.onload = () => {
-                    input.content = isoReader.result;
-                    resolve(processContent(input));
+                    data.content = isoReader.result;
+                    resolve(processContent(data));
                 };
 
                 isoReader.readAsText(file, "ISO-8859-1");
