@@ -1,7 +1,6 @@
 # Detect-File-Encoding-and-Language
 ![npm](https://img.shields.io/npm/dw/detect-file-encoding-and-language)
 ![npm](https://img.shields.io/npm/v/detect-file-encoding-and-language)
-![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/detect-file-encoding-and-language)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/detect-file-encoding-and-language)
 
 [![NPM stats](https://nodei.co/npm/detect-file-encoding-and-language.svg?downloadRank=true&downloads=true)](https://www.npmjs.org/package/detect-file-encoding-and-language)
@@ -49,6 +48,8 @@ $ npm install detect-file-encoding-and-language
 
 ```
 
+> Note: This should work fine with frameworks such as React but if you're using pure vanilla Javascript make sure to use a bundler such as Browserify!
+
 ```js
 // app.js
 
@@ -84,7 +85,7 @@ $ npm install -g detect-file-encoding-and-language
 ```
 
 ### In the terminal
-Use "dfeal" to execute detect-file-encoding-and-language from the command line!
+Use the command `dfeal` to retrieve the encoding and language of your file: 
 
 ```bash
 $ dfeal "/home/user name/Documents/subtitle file.srt"
@@ -157,7 +158,7 @@ $ dfeal /home/user\ name/Documents/subtitle\ file.srt
 * TIS-620
 
 ## Confidence Score
-The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how exactly it works check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
+The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how it all works, check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
 
 ## Known Issues
 * Unable to detect Shift-JIS encoded Japanese text files when using Node.js. Solutions are welcome!
