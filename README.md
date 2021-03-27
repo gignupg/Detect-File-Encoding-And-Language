@@ -22,9 +22,9 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
   * [Index](#index)
   * [Usage](#usage)
     + [In the browser](#in-the-browser)
-      - [Via script tag](#via-script-tag)
+      - [Using the script tag](#using-the-script-tag)
         * [Via CDN](#via-cdn)
-        * [Downloading and including it](#downloading-and-including-it)
+        * [Via download](#via-download)
         * [Usage](#usage)
       - [Using a bundler](#using-a-bundler)
         * [Installation](#installation)
@@ -56,7 +56,7 @@ In the body section of your html file, create an input element of type `file` an
 
 Next, load the module either via a `<script>` tag (create a link) or by using bundler (create a link)!
 
-#### Via script tag
+#### Using the script tag
 When loading it via the `<script>` tag, you can either use the CDN version (create a link) or download the code itself and include it in your project (create a link). The easiest and fastest to start with is using the CDN version (create a link). If you want to be able to use it offline, download and include it (create a link)!
 
 ##### Via CDN
@@ -72,7 +72,7 @@ When loading it via the `<script>` tag, you can either use the CDN version (crea
 
 Now that you've loaded the module, you can finally start using it (create a link). 
 
-##### Downloading and including it
+##### Via download
 1. Create a new folder called `lib` inside your root directory 
 2. Inside `lib` create a new file and call it *language-encoding.min.js*
 3. **Important:** Make sure the encoding of your newly created file is either UTF-8 or UTF-8 with BOM!
