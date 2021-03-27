@@ -55,7 +55,7 @@ In the body section of your html file, create an input element of type `file` an
 </body>
 ```
 
-Next, load the module either via a `<script>` tag (create a link) or by using bundler (create a link)!
+Next, load the module either by [using the script tag](#using-the-script-tag) or by [using a bundler](#using-a-bundler)!
 
 #### Using the script tag
 When loading it via the `<script>` tag, you can either use the CDN version (create a link) or download the code itself and include it in your project (create a link). The easiest and fastest to start with is using the CDN version (create a link). If you want to be able to use it offline, download and include it (create a link)!
