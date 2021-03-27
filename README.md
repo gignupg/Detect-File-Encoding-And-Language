@@ -32,7 +32,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
     + [In Node.js](#in-nodejs)
       - [Installation](#installation-1)
       - [Usage](#usage-3)
-    + [In the terminal (CLI)](#in-the-terminal--cli-)
+    + [In the terminal (CLI)](#in-the-terminal-cli)
       - [Installation](#installation-2)
       - [Usage](#usage-4)
   * [Supported Languages](#supported-languages)
