@@ -58,7 +58,7 @@ In the body section of your html file, create an input element of type `file` an
 Next, load the module either by [using the script tag](#using-the-script-tag) or by [using a bundler](#using-a-bundler)!
 
 #### Using the script tag
-When loading it via the `<script>` tag, you can either use the CDN version or download the code itself and include it in your project. The easiest and fastest to start with is using the [CDN version](#via-cdn). If you want to be able to use it offline, [download and include it](#via-download)!
+When loading it via the `<script>` tag, you can either use the CDN version or download the code itself and include it in your project. For a quickstart use the [CDN version](#via-cdn). If you want to be able to use it offline, [download and include it](#via-download)!
 
 ##### Via CDN
 ```js
