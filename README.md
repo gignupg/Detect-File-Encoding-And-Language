@@ -130,7 +130,7 @@ function inputHandler(e) {
 }
 ```
 
-Note: This works great with frameworks such as React because they are doing the bundling for you. However, if you're using pure vanilla Javascript you will have to bundle it yourself!
+> Note: This works great with frameworks such as React because they are doing the bundling for you. However, if you're using pure vanilla Javascript you will have to bundle it yourself!
 
 ### In Node.js
 
