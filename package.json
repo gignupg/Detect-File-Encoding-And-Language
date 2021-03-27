@@ -1,6 +1,6 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "1.6.1",
+  "version": "1.7.1",
   "description": "An NPM package to detect the encoding and language of a file",
   "main": "src/index-node.js",
   "scripts": {
@@ -10,13 +10,13 @@
   },
   "browser": "umd/language-encoding.min.js",
   "bin": {
-    "dfeal": "bin/cli.js",
-    "language-encoding": "bin/cli.js"
+    "dfeal": "./bin/cli.js"
   },
   "files": [
-    "umd"
+    "umd",
+    "src/components",
+    "src/language-config"
   ],
-  "unpkg": "umd/language-encoding.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gignupg/Detect-File-Encoding-and-Language.git"
