@@ -79,7 +79,7 @@ Now that you've loaded the module, you can [start using it](#usage-1).
 3. Make sure the encoding of your newly created file is either `UTF-8` or `UTF-8 with BOM` before proceeding!
 4. Go to https://unpkg.com/detect-file-encoding-and-language/umd/language-encoding.min.js and copy the code
 5. Paste it into `language-encoding.min.js` and save it
-6. Use the code below to load `language-encoding.min.js` via a `<script>` tag.
+6. Use the code below to load `language-encoding.min.js` via the `<script>` tag.
 
 ```js
 // index.html
