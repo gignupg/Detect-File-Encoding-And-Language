@@ -20,7 +20,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
 - [Detect-File-Encoding-and-Language](#detect-file-encoding-and-language)
   * [Functionality](#functionality)
   * [Index](#index)
-  * [Usage (Javascript)](#usage-javascript)
+  * [Usage](#usage)
     + [Installation](#installation)
     + [In the browser](#in-the-browser)
     + [In Node.js](#in-nodejs)
