@@ -33,23 +33,80 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
   * [Known Issues](#known-issues)
   * [License](#license)
 
-## Usage (Javascript)
+## Usage
+There are several ways in which you can use this NPM package. You can use it as a command-line interface (create a link), server-side with Node.js (create a link) or client-side in the browser (create a link).
 
-### Installation
+### In the browser
+In the body section of your html file, create an input element of type `file` and give it an id.
+
+```js
+// index.html
+<body>
+  <input type="file" id="my-input-field" />
+  <script src="app.js"></script>
+</body>
+```
+
+Next, load the module either via a `<script>` tag (create a link) or by using bundler (create a link)!
+
+#### Via a `<script>` tag
+When loading it via the `<script>` tag, you can either use the CDN version (create a link) or download the code itself and include it in your project (create a link). The easiest and fastest to start with is using the CDN version (create a link). If you want to be able to use it offline, download and include it (create a link)!
+
+##### Using the CDN version
+```js
+// index.html
+
+<body>
+  <input type="file" id="my-input-field" />
+  <script src="https://unpkg.com/detect-file-encoding-and-language/umd/language-encoding.min.js"></script>
+  <script src="app.js"></script>
+</body>
+```
+
+Now that you've loaded the module, you can finally start using it (create a link). 
+
+##### Downloading and including it
+1. Create a new folder called `lib` inside your root directory 
+2. Inside `lib` create a new file and call it *language-encoding.min.js*
+3. **Important:** Make sure the encoding of your newly created file is either UTF-8 or UTF-8 with BOM!
+4. Go to https://unpkg.com/detect-file-encoding-and-language/umd/language-encoding.min.js and copy the code
+5. Paste it into *language-encoding.min.js* and save it
+6. Use the code below to load *language-encoding.min.js* via a `<script>` tag.
+
+```js
+// index.html
+
+<body>
+  <input type="file" id="my-input-field" />
+  <script src="lib/language-encoding.min.js"></script>
+  <script src="app.js"></script>
+</body>
+```
+
+##### Usage (Javascript)
+The `<script>` tag exposes the `languageEncoding` function to everything in the DOM that's beneath it. You should have no trouble accessing it in `app.js` by calling the languageEncoding function and passing in the file that you want to analyze as the argument. As you can see in the example below, languageEncoding returns a Promise that you can use to get the encoding, language and confidenc score. 
+
+```js
+// app.js
+
+document.getElementById("my-input-field").addEventListener("change", inputHandler);
+
+function inputHandler(e) {
+    const file = e.target.files[0];
+
+    languageEncoding(file).then(fileInfo => console.log(fileInfo));
+    // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
+}
+```
+
+#### Using a bundler
+
+##### Installation
 ```bash
 $ npm install detect-file-encoding-and-language
 ```
 
-### In the browser
-```js
-// index.html
-
-<input type="file" id="my-input-field" >
-
-```
-
-> Note: This should work fine with frameworks such as React but if you're using pure vanilla Javascript make sure to use a bundler such as Browserify!
-
+##### Usage
 ```js
 // app.js
 
@@ -65,7 +122,16 @@ function inputHandler(e) {
 }
 ```
 
+Note: This works great with frameworks such as React because they are doing the bundling for you. However, if you're using pure vanilla Javascript you will have to bundle it yourself!
+
 ### In Node.js
+
+#### Installation 
+```bash
+$ npm install detect-file-encoding-and-language
+```
+
+#### Usage
 ```js
 // index.js
 
@@ -77,14 +143,13 @@ languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 // Possible result: { language: japanese, encoding: Shift-JIS, confidence: 1 }
 ```
 
-## Usage (CLI)
+### In the terminal (CLI)
 
-### Installation
+#### Installation 
 ```bash
 $ npm install -g detect-file-encoding-and-language
 ```
 
-### In the terminal
 Use the command `dfeal` to retrieve the encoding and language of your file: 
 
 ```bash
