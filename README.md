@@ -158,7 +158,7 @@ languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 $ npm install -g detect-file-encoding-and-language
 ```
 #### Usage
-Use the command `dfeal` to retrieve the encoding and language of your file: 
+Once the installation has finished you will be able to use the command `dfeal` to retrieve the encoding and language of any text file: 
 
 ```bash
 $ dfeal "/home/user name/Documents/subtitle file.srt"
