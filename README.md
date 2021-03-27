@@ -25,7 +25,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
       - [Via a `<script>` tag](#via-a---script---tag)
         * [Using the CDN version](#using-the-cdn-version)
         * [Downloading and including it](#downloading-and-including-it)
-        * [Usage (Javascript)](#usage--javascript-)
+        * [Usage](#usage)
       - [Using a bundler](#using-a-bundler)
         * [Installation](#installation)
         * [Usage](#usage-1)
@@ -90,7 +90,7 @@ Now that you've loaded the module, you can finally start using it (create a link
 </body>
 ```
 
-##### Usage (Javascript)
+##### Usage
 The `<script>` tag exposes the `languageEncoding` function to everything in the DOM that's beneath it. You should have no trouble accessing it in `app.js` by calling the languageEncoding function and passing in the file that you want to analyze as the argument. As you can see in the example below, languageEncoding returns a Promise that you can use to get the encoding, language and confidenc score. 
 
 ```js
