@@ -16,8 +16,10 @@ For reliable encoding and language detection, use files containing 500 words or 
 
 Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
+## Index
 - [Detect-File-Encoding-and-Language](#detect-file-encoding-and-language)
   * [Functionality](#functionality)
+  * [Index](#index)
   * [Usage](#usage)
     + [In the browser](#in-the-browser)
       - [Via a `<script>` tag](#via-a---script---tag)
