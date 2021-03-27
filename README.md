@@ -16,17 +16,22 @@ For reliable encoding and language detection, use files containing 500 words or 
 
 Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
-## Index
 - [Detect-File-Encoding-and-Language](#detect-file-encoding-and-language)
   * [Functionality](#functionality)
-  * [Index](#index)
   * [Usage](#usage)
-    + [Installation](#installation)
     + [In the browser](#in-the-browser)
+      - [Via a `<script>` tag](#via-a---script---tag)
+        * [Using the CDN version](#using-the-cdn-version)
+        * [Downloading and including it](#downloading-and-including-it)
+        * [Usage (Javascript)](#usage--javascript-)
+      - [Using a bundler](#using-a-bundler)
+        * [Installation](#installation)
+        * [Usage](#usage-1)
     + [In Node.js](#in-nodejs)
-  * [Usage (CLI)](#usage-cli)
-    + [Installation](#installation-1)
-    + [In the terminal](#in-the-terminal)
+      - [Installation](#installation-1)
+      - [Usage](#usage-2)
+    + [In the terminal (CLI)](#in-the-terminal--cli-)
+      - [Installation](#installation-2)
   * [Supported Languages](#supported-languages)
   * [Used Encodings](#used-encodings)
   * [Confidence Score](#confidence-score)
