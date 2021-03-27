@@ -42,7 +42,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
   * [License](#license)
 
 ## Usage
-There are several ways in which you can use this NPM package. You can use it as a [command-line interface](#in-the-terminal-cli), server-side with Node.js (create a link) or client-side in the browser (create a link).
+There are several ways in which you can use this NPM package. You can use it as a [command-line interface](#in-the-terminal-cli), server-side [with Node.js](#in-nodejs) or client-side [in the browser](#in-the-browser).
 
 ### In the browser
 In the body section of your html file, create an input element of type `file` and give it an id.
