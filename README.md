@@ -156,7 +156,7 @@ languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
 ```bash
 $ npm install -g detect-file-encoding-and-language
 ```
-
+#### Usage
 Use the command `dfeal` to retrieve the encoding and language of your file: 
 
 ```bash
