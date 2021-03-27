@@ -71,7 +71,7 @@ When loading it via the `<script>` tag, you can either use the CDN version or do
 </body>
 ```
 
-Now that you've loaded the module, you can finally start using it (create a link). 
+Now that you've loaded the module, you can [start using it](#usage). 
 
 ##### Via download
 1. Create a new folder called `lib` inside your root directory 
