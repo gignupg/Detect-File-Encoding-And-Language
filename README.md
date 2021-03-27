@@ -92,7 +92,7 @@ Now that you've loaded the module, you can [start using it](#usage-1).
 ```
 
 ##### Usage
-The `<script>` tag exposes the `languageEncoding` function to everything in the DOM located beneath it. You should have no trouble accessing it with Javascript by calling the languageEncoding function and passing in the file that you want to analyze as argument. As you can see in the example below, languageEncoding returns a Promise that you can use to retrieve the encoding, language and confidenc score. 
+The `<script>` tag exposes the `languageEncoding` function to everything in the DOM located beneath it. You should have no trouble accessing it with Javascript by calling the `languageEncoding` function and passing in the file that you want to analyze as argument. As you can see in the example below, `languageEncoding` returns a Promise that you can use to retrieve the encoding, language and confidenc score. 
 
 ```js
 // app.js
