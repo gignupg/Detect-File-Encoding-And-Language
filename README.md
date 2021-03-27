@@ -22,8 +22,8 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
   * [Index](#index)
   * [Usage](#usage)
     + [In the browser](#in-the-browser)
-      - [Via a `<script>` tag](#via-a---script---tag)
-        * [Using the CDN version](#using-the-cdn-version)
+      - [Via script tag](#via-script-tag)
+        * [Via CDN](#via-cdn)
         * [Downloading and including it](#downloading-and-including-it)
         * [Usage](#usage)
       - [Using a bundler](#using-a-bundler)
@@ -56,10 +56,10 @@ In the body section of your html file, create an input element of type `file` an
 
 Next, load the module either via a `<script>` tag (create a link) or by using bundler (create a link)!
 
-#### Via a `<script>` tag
+#### Via script tag
 When loading it via the `<script>` tag, you can either use the CDN version (create a link) or download the code itself and include it in your project (create a link). The easiest and fastest to start with is using the CDN version (create a link). If you want to be able to use it offline, download and include it (create a link)!
 
-##### Using the CDN version
+##### Via CDN
 ```js
 // index.html
 
