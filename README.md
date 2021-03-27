@@ -34,6 +34,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
       - [Usage](#usage-2)
     + [In the terminal (CLI)](#in-the-terminal--cli-)
       - [Installation](#installation-2)
+      - [Usage](#usage-3)
   * [Supported Languages](#supported-languages)
   * [Used Encodings](#used-encodings)
   * [Confidence Score](#confidence-score)
