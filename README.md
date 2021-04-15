@@ -1,4 +1,5 @@
 # Detect-File-Encoding-and-Language
+
 ![npm](https://img.shields.io/npm/dw/detect-file-encoding-and-language)
 ![npm](https://img.shields.io/npm/v/detect-file-encoding-and-language)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/detect-file-encoding-and-language)
@@ -6,45 +7,51 @@
 [![NPM stats](https://nodei.co/npm/detect-file-encoding-and-language.svg?downloadRank=true&downloads=true)](https://www.npmjs.org/package/detect-file-encoding-and-language)
 
 ## Functionality
-Determine the encoding and language of any text file!
 
-* Detects 40 languages as well as the appropriate encoding
-* Works best with large inputs
-* Completely free, no API key required
+Determine the encoding and language of text files!
 
-For reliable encoding and language detection, use files containing 500 words or more. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect. 
+- Detects 40 languages as well as the appropriate encoding
+- Available as CLI, in Node.js and in the browser
+- Supports .txt, .srt, and .sub
+- Works best with large inputs
+- Completely free, no API key required
+
+For reliable encoding and language detection, use files containing 500 words or more. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect.
 
 Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
 ## Index
+
 - [Detect-File-Encoding-and-Language](#detect-file-encoding-and-language)
-  * [Functionality](#functionality)
-  * [Index](#index)
-  * [Usage](#usage)
-    + [In the browser](#in-the-browser)
+  - [Functionality](#functionality)
+  - [Index](#index)
+  - [Usage](#usage)
+    - [In the browser](#in-the-browser)
       - [Using the script tag](#using-the-script-tag)
-        * [Via CDN](#via-cdn)
-        * [Via download](#via-download)
-        * [Usage](#usage-1)
+        - [Via CDN](#via-cdn)
+        - [Via download](#via-download)
+        - [Usage](#usage-1)
       - [Using a bundler](#using-a-bundler)
-        * [Installation](#installation)
-        * [Usage](#usage-2)
-    + [In Node.js](#in-nodejs)
+        - [Installation](#installation)
+        - [Usage](#usage-2)
+    - [In Node.js](#in-nodejs)
       - [Installation](#installation-1)
       - [Usage](#usage-3)
-    + [In the terminal (CLI)](#in-the-terminal-cli)
+    - [In the terminal (CLI)](#in-the-terminal-cli)
       - [Installation](#installation-2)
       - [Usage](#usage-4)
-  * [Supported Languages](#supported-languages)
-  * [Used Encodings](#used-encodings)
-  * [Confidence Score](#confidence-score)
-  * [Known Issues](#known-issues)
-  * [License](#license)
+  - [Supported Languages](#supported-languages)
+  - [Used Encodings](#used-encodings)
+  - [Confidence Score](#confidence-score)
+  - [Known Issues](#known-issues)
+  - [License](#license)
 
 ## Usage
+
 There are several ways in which you can use this NPM package. You can use it as a [command-line interface](#in-the-terminal-cli), server-side [with Node.js](#in-nodejs) or client-side [in the browser](#in-the-browser).
 
 ### In the browser
+
 In the body section of your html file, create an input element of type `file` and give it an id.
 
 ```js
@@ -58,9 +65,11 @@ In the body section of your html file, create an input element of type `file` an
 Next, load the module either by [using the script tag](#using-the-script-tag) or by [using a bundler](#using-a-bundler)!
 
 #### Using the script tag
+
 When loading it via the `<script>` tag, you can either use the CDN version or download the code itself and include it in your project. For a quickstart use the [CDN version](#via-cdn). If you want to be able to use it offline, [download and include it](#via-download)!
 
 ##### Via CDN
+
 ```js
 // index.html
 
@@ -71,10 +80,11 @@ When loading it via the `<script>` tag, you can either use the CDN version or do
 </body>
 ```
 
-Now that you've loaded the module, you can [start using it](#usage-1). 
+Now that you've loaded the module, you can [start using it](#usage-1).
 
 ##### Via download
-1. Create a new folder called `lib` inside your root directory 
+
+1. Create a new folder called `lib` inside your root directory
 2. Inside `lib` create a new file and call it `language-encoding.min.js`
 3. Make sure the encoding of your newly created file is either `UTF-8` or `UTF-8 with BOM` before proceeding!
 4. Go to https://unpkg.com/detect-file-encoding-and-language/umd/language-encoding.min.js and copy the code
@@ -92,41 +102,48 @@ Now that you've loaded the module, you can [start using it](#usage-1).
 ```
 
 ##### Usage
+
 The `<script>` tag exposes the `languageEncoding` function to everything in the DOM located beneath it. When you call it and pass in the file that you want to analyze, it'll return a Promise that you can use to retrieve the encoding, language and confidenc score as shown in the example below.
 
 ```js
 // app.js
 
-document.getElementById("my-input-field").addEventListener("change", inputHandler);
+document
+  .getElementById("my-input-field")
+  .addEventListener("change", inputHandler);
 
 function inputHandler(e) {
-    const file = e.target.files[0];
+  const file = e.target.files[0];
 
-    languageEncoding(file).then(fileInfo => console.log(fileInfo));
-    // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
+  languageEncoding(file).then((fileInfo) => console.log(fileInfo));
+  // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
 }
 ```
 
 #### Using a bundler
 
 ##### Installation
+
 ```bash
 $ npm install detect-file-encoding-and-language
 ```
 
 ##### Usage
+
 ```js
 // app.js
 
 const languageEncoding = require("detect-file-encoding-and-language");
 
-document.getElementById("my-input-field").addEventListener("change", inputHandler);
+document
+  .getElementById("my-input-field")
+  .addEventListener("change", inputHandler);
 
 function inputHandler(e) {
-    const file = e.target.files[0];
+  const file = e.target.files[0];
 
-    languageEncoding(file).then(fileInfo => console.log(fileInfo));
-    // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
+  languageEncoding(file).then((fileInfo) => console.log(fileInfo));
+  // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
 }
 ```
 
@@ -134,30 +151,35 @@ function inputHandler(e) {
 
 ### In Node.js
 
-#### Installation 
+#### Installation
+
 ```bash
 $ npm install detect-file-encoding-and-language
 ```
 
 #### Usage
+
 ```js
 // index.js
 
 const languageEncoding = require("detect-file-encoding-and-language");
 
-const pathToFile = "/home/username/documents/my-text-file.txt"
+const pathToFile = "/home/username/documents/my-text-file.txt";
 
-languageEncoding(pathToFile).then(fileInfo => console.log(fileInfo));
+languageEncoding(pathToFile).then((fileInfo) => console.log(fileInfo));
 // Possible result: { language: japanese, encoding: Shift-JIS, confidence: 1 }
 ```
 
 ### In the terminal (CLI)
 
-#### Installation 
+#### Installation
+
 ```bash
 $ npm install -g detect-file-encoding-and-language
 ```
+
 #### Usage
+
 Once installed you'll be able to use the command `dfeal` to retrieve the encoding and language of your text files.
 
 ```bash
@@ -173,69 +195,73 @@ $ dfeal /home/user\ name/Documents/subtitle\ file.srt
 ```
 
 ## Supported Languages
-* Polish
-* Czech
-* Hungarian
-* Romanian
-* Slovak
-* Slovenian
-* Albanian
-* Russian
-* Ukrainian
-* Bulgarian
-* English
-* French
-* Portuguese
-* Spanish
-* German
-* Italian
-* Danish
-* Norwegian
-* Swedish
-* Dutch
-* Finnish
-* Serbo-Croatian
-* Estonian
-* Icelandic
-* Malay-Indonesian
-* Greek
-* Turkish
-* Hebrew
-* Arabic
-* Farsi-Persian
-* Lithuanian
-* Chinese-Simplified
-* Chinese-Traditional
-* Japanese
-* Korean
-* Thai
-* Bengali
-* Hindi
-* Urdu
-* Vietnamese
+
+- Polish
+- Czech
+- Hungarian
+- Romanian
+- Slovak
+- Slovenian
+- Albanian
+- Russian
+- Ukrainian
+- Bulgarian
+- English
+- French
+- Portuguese
+- Spanish
+- German
+- Italian
+- Danish
+- Norwegian
+- Swedish
+- Dutch
+- Finnish
+- Serbo-Croatian
+- Estonian
+- Icelandic
+- Malay-Indonesian
+- Greek
+- Turkish
+- Hebrew
+- Arabic
+- Farsi-Persian
+- Lithuanian
+- Chinese-Simplified
+- Chinese-Traditional
+- Japanese
+- Korean
+- Thai
+- Bengali
+- Hindi
+- Urdu
+- Vietnamese
 
 ## Used Encodings
-* UTF-8
-* CP1250
-* CP1251
-* CP1252
-* CP1253
-* CP1254
-* CP1255
-* CP1256
-* CP1257
-* GB18030
-* BIG5
-* Shift-JIS
-* EUC-KR
-* TIS-620
+
+- UTF-8
+- CP1250
+- CP1251
+- CP1252
+- CP1253
+- CP1254
+- CP1255
+- CP1256
+- CP1257
+- GB18030
+- BIG5
+- Shift-JIS
+- EUC-KR
+- TIS-620
 
 ## Confidence Score
+
 The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how it all works, check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
 
 ## Known Issues
-* Unable to detect Shift-JIS encoded Japanese text files when using Node.js. Solutions are welcome!
-* Unable to detect UTF-16-LE encoded files when using Node.js. Solutions are welcome!
+
+- Unable to detect Shift-JIS encoded Japanese text files when using Node.js. Solutions are welcome!
+- Unable to detect UTF-16-LE encoded files when using Node.js. Solutions are welcome!
 
 ## License
 

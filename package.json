@@ -1,6 +1,6 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Charset Detector - Detect the encoding and language of any file - Use it in the browser, with Node.js, or via CLI",
   "main": "src/index-node.js",
   "scripts": {
