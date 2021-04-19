@@ -1,6 +1,6 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "2.0.4",
+  "version": "2.0.7",
   "description": "Charset Detector - Detect the encoding and language of any file - Use it in the browser, with Node.js, or via CLI",
   "main": "src/index-node.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "files": [
     "umd",
     "src/components",
-    "src/language-config"
+    "src/config"
   ],
   "repository": {
     "type": "git",
