@@ -1,11 +1,12 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "1.7.4",
+  "version": "2.0.1",
   "description": "Charset Detector - Detect the encoding and language of any file - Use it in the browser, with Node.js, or via CLI",
   "main": "src/index-node.js",
   "scripts": {
     "regextest": "node ./testing/regexTester.test.js",
     "test": "node ./testing/language-encoding.test.js",
+    "build": "browserify --standalone ./src/index-browser.js > ./umd/language-encoding.min.js",
     "prepublishOnly": "npm test"
   },
   "browser": "umd/language-encoding.min.js",

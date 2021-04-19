@@ -19,7 +19,6 @@ module.exports = (file, test) => {
     // Reading the first four bytes and checking if they coincide with one of the predefined byte order marks.
     const readStream = fs.createReadStream(file, { start: 0, end: 3 });
 
-    // This will wait until we know the readable stream is actually valid before piping
     readStream.on("data", function (buffer) {
       const uInt8Array = new Uint8Array(buffer);
       const uInt8String = uInt8Array.join(" ");

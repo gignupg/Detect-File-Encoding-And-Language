@@ -103,7 +103,7 @@ Now that you've loaded the module, you can [start using it](#usage-1).
 
 ##### Usage
 
-The `<script>` tag exposes the `languageEncoding` function to everything in the DOM located beneath it. When you call it and pass in the file that you want to analyze, it'll return a Promise that you can use to retrieve the encoding, language and confidenc score as shown in the example below.
+The `<script>` tag exposes the `languageEncoding` function to everything in the DOM located beneath it. When you call it and pass in the file that you want to analyze, it'll return a Promise that you can use to retrieve the encoding, language and confidence score as shown in the example below.
 
 ```js
 // app.js
@@ -116,7 +116,7 @@ function inputHandler(e) {
   const file = e.target.files[0];
 
   languageEncoding(file).then((fileInfo) => console.log(fileInfo));
-  // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
+  // Possible result: { language: english, encoding: UTF-8, confidence: { encoding: 1, language: 1 } }
 }
 ```
 
@@ -143,7 +143,7 @@ function inputHandler(e) {
   const file = e.target.files[0];
 
   languageEncoding(file).then((fileInfo) => console.log(fileInfo));
-  // Possible result: { language: english, encoding: UTF-8, confidence: 0.97}
+  // Possible result: { language: french, encoding: CP1252, confidence: { encoding: 1, language: 0.97 } }
 }
 ```
 
@@ -167,7 +167,7 @@ const languageEncoding = require("detect-file-encoding-and-language");
 const pathToFile = "/home/username/documents/my-text-file.txt";
 
 languageEncoding(pathToFile).then((fileInfo) => console.log(fileInfo));
-// Possible result: { language: japanese, encoding: Shift-JIS, confidence: 1 }
+// Possible result: { language: japanese, encoding: Shift-JIS, confidence: { encoding: 0.94, language: 0.94 } }
 ```
 
 ### In the terminal (CLI)
@@ -184,14 +184,14 @@ Once installed you'll be able to use the command `dfeal` to retrieve the encodin
 
 ```bash
 $ dfeal "/home/user name/Documents/subtitle file.srt"
-# Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
+# Possible result: { language: french, encoding: CP1252, confidence: { encoding: 0.99, language: 0.99 } }
 ```
 
 or without quotation marks, using backslashes to escape spaces:
 
 ```bash
 $ dfeal /home/user\ name/Documents/subtitle\ file.srt
-# Possible result: { language: french, encoding: CP1252, confidence: 0.99 }
+# Possible result: { language: french, encoding: CP1252, confidence: { encoding: 0.97, language: 0.97 } }
 ```
 
 ## Supported Languages
@@ -256,7 +256,7 @@ $ dfeal /home/user\ name/Documents/subtitle\ file.srt
 
 ## Confidence Score
 
-The confidence score ranges from 0 to 1. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how it all works, check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
+The confidence score ranges from 0 to 1. It's an object that contains two different confidence scores. The language confidence score and the encoding confidence score. Both confidence scores will be the same if the detected encoding is Unicode. Otherwise the confidence score for the language and the encoding is calculated seperately. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how it all works, check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
 
 ## Known Issues
 
