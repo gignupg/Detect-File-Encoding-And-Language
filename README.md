@@ -240,6 +240,15 @@ $ dfeal /home/user\ name/Documents/subtitle\ file.srt
 ## Used Encodings
 
 - UTF-8
+- UTF-16LE
+- UTF-16BE
+- UTF-32LE
+- UTF-32BE
+- UTF-7
+- UTF-1
+- UTF-EBCDIC
+- SCSU
+- BOCU-1
 - CP1250
 - CP1251
 - CP1252
