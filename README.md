@@ -12,7 +12,7 @@ Determine the encoding and language of text files!
 
 - Detects 40 languages as well as the appropriate encoding
 - Available as CLI, in Node.js and in the browser
-- Supports .txt, .srt, and .sub
+- Supports .txt, .srt, .sub, .html, .csv, .tsv
 - Works best with large inputs
 - Completely free, no API key required
 
@@ -261,7 +261,6 @@ The confidence score ranges from 0 to 1. It is based on the amount of matches th
 ## Known Issues
 
 - Unable to detect Shift-JIS encoded Japanese text files when using Node.js. Solutions are welcome!
-- Unable to detect UTF-16-LE encoded files when using Node.js. Solutions are welcome!
 
 ## License
 
