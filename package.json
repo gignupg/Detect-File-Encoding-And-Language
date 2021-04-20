@@ -1,6 +1,6 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Charset Detector - Detect the encoding and language of any file - Use it in the browser, with Node.js, or via CLI",
   "main": "src/index-node.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "minify": "uglifyjs ./umd/language-encoding.min.js --compress --output ./umd/language-encoding.min.js",
     "prepublishOnly": "npm test"
   },
-  "browser": "umd/language-encoding.min.js",
+  "browser": "src/index-browser.js",
   "bin": {
     "dfeal": "./bin/cli.js"
   },
