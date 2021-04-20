@@ -6,7 +6,6 @@ module.exports = (data, fileInfo) => {
   const totalCharacters = data.content.replace(charRegex, "").length;
   const langArr = data.languageArr;
   const pos = data.pos;
-  const testFile = data.testFile;
 
   const secondLanguage = langArr.reduce((acc, val) => {
     if (acc.name === fileInfo.language) return val;
@@ -55,25 +54,6 @@ module.exports = (data, fileInfo) => {
     confidenceScore = Number(
       (languageRatio * (characterWordRatio / lowerLimit)).toFixed(2)
     );
-  }
-
-  // If the test script is running
-  if (testFile) {
-    return {
-      name: testFile.substr(testFile.lastIndexOf("/") + 1),
-      path: testFile,
-      encoding: fileInfo.encoding,
-      language: fileInfo.language,
-      languageConfidence: confidenceScore,
-      ratio: Number(languageRatio.toFixed(2)),
-      count: langArr[pos].count,
-      totalCharacters: totalCharacters,
-      characterWordRatio: characterWordRatio.toFixed(6),
-      secondLanguage: {
-        name: secondLanguage.name,
-        count: secondLanguage.count,
-      },
-    };
   }
 
   return confidenceScore;

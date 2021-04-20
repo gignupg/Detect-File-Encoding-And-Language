@@ -20,10 +20,6 @@ module.exports = (data, fileInfo) => {
 
   const calculations = calculateConfidenceScore(data, fileInfo);
 
-  if (data.testFile) {
-    return calculations;
-  }
-
   if (fileInfo.confidence.encoding) {
     fileInfo.confidence.language = calculations;
   } else {

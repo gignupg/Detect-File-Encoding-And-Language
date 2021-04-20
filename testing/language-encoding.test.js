@@ -12,11 +12,44 @@ const folderPath = "/home/gignu/Documents/Subtitle Database/Language Folders/";
 const testFiles = getFiles(folderPath);
 
 testFiles.forEach((file) => {
-  languageEncoding(file, true)
+  languageEncoding(file)
     .then((fileInfo) => {
-      if (fileInfo.ratio <= 0.85) {
+      // language = language
+      const testFileArray = file.split("/");
+      const expectedLanguage = testFileArray[testFileArray.length - 2]
+        .toLowerCase()
+        .replace(" ", "-");
+
+      if (
+        fileInfo.language !== expectedLanguage &&
+        expectedLanguage !== "japanese"
+      )
+        testFailed("language");
+
+      // confidence >= 0.95
+      if (
+        fileInfo.confidence.encoding < 0.95 &&
+        expectedLanguage !== "japanese"
+      )
+        testFailed("confidence");
+
+      function testFailed(issue) {
         console.log("Test case failed:");
+
+        switch (issue) {
+          case "language":
+            console.log("Expected language:", expectedLanguage);
+            console.log("Detected language:", fileInfo.language);
+          case "confidence":
+            console.log("Confidence score too low!");
+            console.log(
+              "fileInfo.confidence.encoding:",
+              fileInfo.confidence.encoding
+            );
+        }
+
         console.log(fileInfo);
+        console.log("file:", file);
         process.exit(1);
       }
     })

@@ -3,7 +3,7 @@ const checkUTF = require("./components/checkUTF.js");
 const processContent = require("./components/processContent.js");
 const checkByteOrderMark = require("./components/checkByteOrderMark.js");
 
-module.exports = (file, test) => {
+module.exports = (file) => {
   return new Promise((resolve, reject) => {
     const fileInfo = {
       encoding: null,
@@ -14,7 +14,6 @@ module.exports = (file, test) => {
       },
     };
     const data = {};
-    data.testFile = test ? file : null;
 
     // Reading the first four bytes and checking if they coincide with one of the predefined byte order marks.
     const readStream = fs.createReadStream(file, { start: 0, end: 3 });
