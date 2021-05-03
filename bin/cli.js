@@ -13,7 +13,7 @@ if (tooManyArguments)
 
 languageEncoding(path)
   .then((fileInfo) => {
-    console.log(fileInfo);
+    console.log(JSON.stringify(fileInfo, null, 4));
   })
   .catch((error) => {
     console.log(error);
