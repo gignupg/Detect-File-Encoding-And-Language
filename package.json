@@ -1,7 +1,7 @@
 {
   "name": "detect-file-encoding-and-language",
-  "version": "2.0.9",
-  "description": "Charset Detector - Detect the encoding and language of any file - Use it in the browser, with Node.js, or via CLI",
+  "version": "2.1.0",
+  "description": "Charset Detector - Detect the encoding and language of text files - Use it in the browser, with Node.js, or via CLI",
   "main": "src/index-node.js",
   "scripts": {
     "regextest": "node ./testing/regexTester.test.js",
