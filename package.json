@@ -3,6 +3,7 @@
   "version": "2.1.0",
   "description": "Charset Detector - Detect the encoding and language of text files - Use it in the browser, with Node.js, or via CLI",
   "main": "src/index-node.js",
+  "types": "src/index-node.d.ts",
   "scripts": {
     "regextest": "node ./testing/regexTester.test.js",
     "test": "node ./testing/language-encoding.test.js",
