@@ -388,6 +388,8 @@ module.exports = [
         utfFrequency: { low: 0.003194, high: 0.003468 },
         isoFrequency: { low: 0.002091, high: 0.002303 }
     },
+    // The following languages don't seem to have their own encoding
+    // Subtitle files in these languages seem to almost exclusively use UTF encoding.
     {
         name: "bengali",
         count: 0,
