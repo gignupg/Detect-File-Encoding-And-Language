@@ -183,14 +183,14 @@ $ npm install -g detect-file-encoding-and-language
 Once installed you'll be able to use the command `dfeal` to retrieve the encoding and language of your text files.
 
 ```bash
-$ dfeal "/home/user name/Documents/subtitle file.srt"
+$ dfeal "/home/username/Documents/subtitle file.srt"
 # Possible result: { language: french, encoding: CP1252, confidence: { encoding: 0.99, language: 0.99 } }
 ```
 
 or without quotation marks, using backslashes to escape spaces:
 
 ```bash
-$ dfeal /home/user\ name/Documents/subtitle\ file.srt
+$ dfeal /home/username/Documents/subtitle\ file.srt
 # Possible result: { language: french, encoding: CP1252, confidence: { encoding: 0.97, language: 0.97 } }
 ```
 
