@@ -28,7 +28,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
 
 ## Usage
 
-### Script Tag
+### Via Script Tag
 
 ```js
 // index.html
@@ -49,7 +49,7 @@ function inputHandler(e) {
 
 If you don't want to use a CDN feel free to [download the source code](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki/Downloading-the-Source-Code)!
 
-### React and other frameworks
+### With React and other frameworks
 
 ```js
 // index.html
@@ -68,7 +68,7 @@ function inputHandler(e) {
 }
 ```
 
-### Node
+### With Node
 
 ```js
 // server.js
@@ -78,7 +78,7 @@ languageEncoding(pathToFile).then((fileInfo) => console.log(fileInfo));
 // Possible result: { language: japanese, encoding: Shift-JIS, confidence: { encoding: 0.94, language: 0.94 } }
 ```
 
-### CLI
+### Via CLI
 
 ```bash
 # Installation
