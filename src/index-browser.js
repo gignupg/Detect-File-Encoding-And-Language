@@ -18,9 +18,7 @@ module.exports = (file) => {
     const byteOrderMarkBuffer = new FileReader();
 
     byteOrderMarkBuffer.onload = () => {
-      const uInt8String = new Uint8Array(byteOrderMarkBuffer.result)
-        .slice(0, 4)
-        .join(" ");
+      const uInt8String = new Uint8Array(byteOrderMarkBuffer.result).slice(0, 4).join(" ");
       const byteOrderMark = checkByteOrderMark(uInt8String);
 
       if (byteOrderMark) {

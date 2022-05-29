@@ -7,54 +7,39 @@ checkLocation("bin", "cli.js");
 checkLocation("src", "index-node.js");
 checkLocation("umd", "language-encoding.min.js");
 
-// Test all files in my 'language folders' dataset
+// Test all files in the 'language folders' dataset
 const folderPath = "/home/gignu/Documents/Subtitle Database/Language Folders/";
 const testFiles = getFiles(folderPath);
 
 testFiles.forEach((file) => {
   languageEncoding(file)
     .then((fileInfo) => {
-      // language = language
       const testFileArray = file.split("/");
-      const expectedLanguage = testFileArray[testFileArray.length - 2]
-        .toLowerCase()
-        .replace(" ", "-");
+      const expectedLanguage = testFileArray[testFileArray.length - 2].toLowerCase().replace(" ", "-");
 
-      if (
-        fileInfo.language !== expectedLanguage &&
-        expectedLanguage !== "japanese"
-      )
+      if (fileInfo.language !== expectedLanguage)
         testFailed("language");
 
-      // confidence >= 0.95
-      if (
-        fileInfo.confidence.encoding < 0.95 &&
-        expectedLanguage !== "japanese"
-      )
+      if (fileInfo.confidence.encoding < 0.95)
         testFailed("confidence");
 
       function testFailed(issue) {
-        console.log("Test case failed:");
-
+        console.error("Test case failed:");
         switch (issue) {
           case "language":
-            console.log("Expected language:", expectedLanguage);
-            console.log("Detected language:", fileInfo.language);
+            console.info("Expected language:", expectedLanguage);
+            console.info("Detected language:", fileInfo.language);
           case "confidence":
-            console.log("Confidence score too low!");
-            console.log(
-              "fileInfo.confidence.encoding:",
-              fileInfo.confidence.encoding
-            );
+            console.info("Confidence score too low!");
+            console.info("fileInfo.confidence.encoding:", fileInfo.confidence.encoding);
         }
-
-        console.log(fileInfo);
-        console.log("file:", file);
+        console.info(fileInfo);
+        console.info("file:", file);
         process.exit(1);
       }
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
     });
 });
 
@@ -74,14 +59,10 @@ function getFiles(dir, files_) {
 }
 
 function checkLocation(folder, file) {
-  const dir = fs.readdirSync(
-    "/home/gignu/GitHub/Detect-File-Encoding-and-Language/" + folder
-  );
+  const dir = fs.readdirSync("/home/gignu/GitHub/Detect-File-Encoding-and-Language/" + folder);
   const fileFound = dir.some((fileName) => fileName === file);
   if (!fileFound) {
-    console.log(
-      `According to my test file, ${file} is supposed to be located here: /home/gignu/GitHub/Detect-File-Encoding-and-Language/${folder}`
-    );
+    console.error(`Error: Expected ${file} to be located here: /home/gignu/GitHub/Detect-File-Encoding-and-Language/${folder}`);
     process.exit(1);
   }
 }

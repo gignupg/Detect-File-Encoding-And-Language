@@ -1,5 +1,6 @@
 const countAllMatches = require("./processing-content/countAllMatches.js");
 const calculateConfidenceScore = require("./processing-content/calculateConfidenceScore.js");
+const byteOrderMarkObject = require("../config/byteOrderMarkObject.js");
 
 module.exports = (data, fileInfo) => {
   data.languageArr = countAllMatches(data, fileInfo.encoding);
@@ -31,6 +32,11 @@ module.exports = (data, fileInfo) => {
   if (!data.languageArr[data.pos].count) {
     fileInfo.language = null;
     fileInfo.confidence.language = null;
+
+    if (!byteOrderMarkObject.includes(fileInfo.encoding)) {
+      fileInfo.encoding = null;
+      fileInfo.confidence.encoding = null;
+    }
   }
 
   return fileInfo;
