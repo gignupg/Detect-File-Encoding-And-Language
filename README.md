@@ -24,7 +24,7 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
 
 ## Installation
 
-`npm install --save detect-file-encoding-and-language`
+`npm install detect-file-encoding-and-language`
 
 ## Usage
 
