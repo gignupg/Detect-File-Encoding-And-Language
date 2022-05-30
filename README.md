@@ -41,12 +41,11 @@ npm install detect-file-encoding-and-language
 </body>
 
 // app.js
-document.getElementById("my-input-field").addEventListener("change", inputHandler);
-function inputHandler(e) {
+document.getElementById("my-input-field").addEventListener("change", (e) => {
   const file = e.target.files[0];
   languageEncoding(file).then((fileInfo) => console.log(fileInfo));
   // Possible result: { language: english, encoding: UTF-8, confidence: { encoding: 1, language: 1 } }
-}
+});
 ```
 
 If you don't want to use a CDN feel free to [download the source code](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki/Downloading-the-Source-Code)!
@@ -54,19 +53,15 @@ If you don't want to use a CDN feel free to [download the source code](https://g
 ### In React
 
 ```js
-// index.html
-<body>
-  <input type="file" id="my-input-field" />
-  <script src="app.js"></script>
-</body>
-
-// app.js
+// App.js
 import languageEncoding from "detect-file-encoding-and-language";
-document.getElementById("my-input-field").addEventListener("change", inputHandler);
-function inputHandler(e) {
-  const file = e.target.files[0];
-  languageEncoding(file).then((fileInfo) => console.log(fileInfo));
-  // Possible result: { language: french, encoding: CP1252, confidence: { encoding: 1, language: 0.97 } }
+export default function App() {
+  function inputHandler(e) {
+    const file = e.target.files[0];
+    languageEncoding(file).then((fileInfo) => console.log(fileInfo));
+    // Possible result: { language: english, encoding: UTF-8, confidence: { encoding: 1, language: 1 } }
+  }
+  return <input type="file" onChange={inputHandler} />;
 }
 ```
 
