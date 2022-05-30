@@ -24,7 +24,9 @@ Feel free to test the functionality of this NPM package [here](https://encoding-
 
 ## Installation
 
-`npm install detect-file-encoding-and-language`
+```
+npm install detect-file-encoding-and-language
+```
 
 ## Usage
 
@@ -49,7 +51,7 @@ function inputHandler(e) {
 
 If you don't want to use a CDN feel free to [download the source code](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki/Downloading-the-Source-Code)!
 
-### With React and other frameworks
+### In React
 
 ```js
 // index.html
@@ -68,7 +70,7 @@ function inputHandler(e) {
 }
 ```
 
-### With Node
+### In Node
 
 ```js
 // server.js
