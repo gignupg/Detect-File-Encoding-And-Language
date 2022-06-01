@@ -20,7 +20,7 @@ For reliable encoding and language detection, use files containing 500 words or 
 
 ## Live Demo
 
-Feel free to test the functionality of this NPM package [here](https://encoding-and-language-detector.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
+Feel free to test the functionality of this NPM package [here](https://detect-file-encoding-and-language-live-demo.netlify.app/). Upload your own files and see if the encoding and language are detected correctly!
 
 ## Installation
 
