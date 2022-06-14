@@ -10,32 +10,39 @@ checkLocation("umd", "language-encoding.min.js");
 // Test all files in the 'language folders' dataset
 const folderPath = "/home/gignu/Documents/Subtitle Database/Language Folders/";
 const testFiles = getFiles(folderPath);
+const minConfidence = 0.95;
 
 testFiles.forEach((file) => {
   languageEncoding(file)
     .then((fileInfo) => {
       const testFileArray = file.split("/");
-      const expectedLanguage = testFileArray[testFileArray.length - 2].toLowerCase().replace(" ", "-");
+      const folderNameArr = testFileArray[testFileArray.length - 2].split('_');
+      const expectedLanguage = folderNameArr ? folderNameArr[0] : null;
+      const expectedEncoding = folderNameArr ? folderNameArr[1] : null;
 
-      if (fileInfo.language !== expectedLanguage)
-        testFailed("language");
+      if (!expectedLanguage) {
+        console.error("Expected language not found in folder name:", file.directoryHandle?.name);
+        setError(file, fileInfo);
 
-      if (fileInfo.confidence.encoding < 0.95)
-        testFailed("confidence");
+      } else if (!expectedEncoding) {
+        console.error("Expected encoding not found in folder name:", file.directoryHandle?.name);
+        setError(file, fileInfo);
 
-      function testFailed(issue) {
-        console.error("Test case failed:");
-        switch (issue) {
-          case "language":
-            console.info("Expected language:", expectedLanguage);
-            console.info("Detected language:", fileInfo.language);
-          case "confidence":
-            console.info("Confidence score too low!");
-            console.info("fileInfo.confidence.encoding:", fileInfo.confidence.encoding);
-        }
-        console.info(fileInfo);
-        console.info("file:", file);
-        process.exit(1);
+      } else if (!fileInfo.confidence.encoding || fileInfo.confidence.encoding < minConfidence) {
+        console.error("Encoding Confidence too low:", fileInfo.confidence.encoding);
+        setError(file, fileInfo);
+
+      } else if (!fileInfo.confidence.language || fileInfo.confidence.language < minConfidence) {
+        console.error("Language Confidence too low:", fileInfo.confidence.language);
+        setError(file, fileInfo);
+
+      } else if (fileInfo.language !== expectedLanguage) {
+        console.error(`Language mismatch! Expected ${expectedLanguage} but got ${fileInfo.language}`);
+        setError(file, fileInfo);
+
+      } else if (fileInfo.encoding !== expectedEncoding) {
+        console.error(`Encoding mismatch! Expected ${expectedEncoding} but got ${fileInfo.encoding}`);
+        setError(file, fileInfo);
       }
     })
     .catch((error) => {
@@ -65,4 +72,10 @@ function checkLocation(folder, file) {
     console.error(`Error: Expected ${file} to be located here: /home/gignu/GitHub/Detect-File-Encoding-and-Language/${folder}`);
     process.exit(1);
   }
+}
+
+function setError(file, fileInfo) {
+  console.info('fileInfo:', fileInfo);
+  console.info('file:', file);
+  process.exit(1);
 }

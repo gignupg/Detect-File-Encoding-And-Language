@@ -365,7 +365,7 @@ module.exports = [
         name: "japanese",
         count: 0,
         utfRegex: new RegExp(/ど/, flag),
-        isoRegex: new RegExp(/‚»/, flag),
+        isoRegex: new RegExp(/‚»|ÁÄ/, flag),
         encoding: "Shift-JIS",
         utfFrequency: { low: 0.004257, high: 0.006585 },
         isoFrequency: { low: 0.004286, high: 0.004653 }
