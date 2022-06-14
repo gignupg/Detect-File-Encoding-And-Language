@@ -159,10 +159,6 @@ dfeal "/home/username/Documents/subtitle file.srt"
 
 The confidence score ranges from 0 to 1. It's an object that contains two different confidence scores. The language confidence score and the encoding confidence score. Both confidence scores will be the same if the detected encoding is Unicode. Otherwise the confidence score for the language and the encoding is calculated seperately. It is based on the amount of matches that were found for a particular language and the frequency of those matches. If you want to learn more about how it all works, check out the [Wiki entry](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki)!
 
-## Known Issues
-
-- Unable to detect Shift-JIS encoded Japanese text files when using Node.js. Solutions are welcome!
-
 ## License
 
 This project is licensed under the MIT License
