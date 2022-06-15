@@ -1,4 +1,4 @@
-# Detect-File-Encoding-and-Language
+# Detect-File-Encoding-And-Language
 
 ![npm](https://img.shields.io/npm/dm/detect-file-encoding-and-language)
 ![npm](https://img.shields.io/npm/v/detect-file-encoding-and-language)
