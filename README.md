@@ -46,6 +46,13 @@ document.getElementById("my-input-field").addEventListener("change", (e) => {
   languageEncoding(file).then((fileInfo) => console.log(fileInfo));
   // Possible result: { language: english, encoding: UTF-8, confidence: { encoding: 1, language: 1 } }
 });
+
+// Alternative app.js, if you want to use the result externally (by adding async and await):
+document.getElementById("my-input-field").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  const the_result = await languageEncoding(file);
+  console.log(the_result); // Possible result: { language: english, encoding: UTF-8, confidence: { encoding: 1, language: 1 } }
+});
 ```
 
 If you don't want to use a CDN feel free to [download the source code](https://github.com/gignupg/Detect-File-Encoding-and-Language/wiki/Downloading-the-Source-Code)!
