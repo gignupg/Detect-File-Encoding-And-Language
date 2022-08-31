@@ -1,0 +1,13 @@
+body {
+    background-color: lightgray;
+}
+
+h4 {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.card-panel {
+    overflow: hidden;
+    min-height: 95vh;
+}
