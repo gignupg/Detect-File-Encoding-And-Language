@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import languageEncoding from "detect-file-encoding-and-language";
 import { directoryOpen } from 'browser-fs-access';
-import { SpinnerDotted } from 'spinners-react';
 
 type Status = '' | 'error' | 'success' | 'loading';
 
@@ -10,6 +9,7 @@ let error = false;
 
 export default function App() {
   const [status, setStatus] = useState<Status>('');
+  const [progress, setProgress] = useState('0%')
 
   function setError(file: any, fileInfo: any) {
     setStatus('error');
@@ -21,6 +21,8 @@ export default function App() {
   async function inputHandler() {
     error = false;
     const files = await directoryOpen({recursive: true});
+    const filesToCheck = files.length
+    let filesChecked = 0
     setStatus('loading')
 
     for (const file of files) {
@@ -53,12 +55,16 @@ export default function App() {
           console.error(`Encoding mismatch! Expected ${expectedEncoding} but got ${fileInfo.encoding}`);
           setError(file, fileInfo);
         }
+        filesChecked++
+        setProgress(`${filesChecked / filesToCheck * 100}%`)
     }
 
     if (!error) {
       console.info("All tests passed!");
       setStatus('success');
     }
+
+    setProgress('0%')
   }
 
   return (
@@ -78,7 +84,11 @@ export default function App() {
             </span>
           </div>
           {
-            status === 'loading' && <h5>Testing files <SpinnerDotted /></h5>
+            status === 'loading' && (
+              <div className="progress">
+                <div className="determinate" style={{ width: progress }}></div>
+              </div>
+            )
           }
           {
             status === 'error' && (

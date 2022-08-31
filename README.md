@@ -30,7 +30,7 @@ npm install detect-file-encoding-and-language
 
 ## Usage
 
-### Via Script Tag
+### Via CDN
 
 ```js
 // index.html
