@@ -7,5 +7,5 @@ export interface FileInfo {
     },
 }
 
-declare function DetectFileEncodingAndLanguage(path: string): Promise<FileInfo>;
+declare function DetectFileEncodingAndLanguage(fileOrPath: string | File): Promise<FileInfo>;
 export default DetectFileEncodingAndLanguage;

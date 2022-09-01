@@ -5,7 +5,7 @@
   "main": "src/index-node.js",
   "browser": {
     "./src/index-node.js": "./src/index-browser.js",
-    "./src/index-node.d.ts": "./src/index-browser.d.ts"
+    "./src/index-node.d.ts": false
   },
   "scripts": {
     "file": "node ./bin/cli.js",
