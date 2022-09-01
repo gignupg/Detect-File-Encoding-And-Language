@@ -1,7 +1,7 @@
 const languageEncoding = require("../src/index-node.js");
 const fs = require("fs");
 
-// Make sure all files that package.json requires are present
+// Making sure all important files are there
 // Checking for CLI, Node.js and Browser/UNPKG
 checkLocation("bin", "cli.js");
 checkLocation("src", "index-node.js");
@@ -66,7 +66,7 @@ function getFiles(dir, files_) {
 }
 
 function checkLocation(folder, file) {
-  const dir = fs.readdirSync("/home/gignu/GitHub/Detect-File-Encoding-and-Language/" + folder);
+  const dir = fs.readdirSync("/home/gignu/GitHub/Detect-File-Encoding-And-Language/" + folder);
   const fileFound = dir.some((fileName) => fileName === file);
   if (!fileFound) {
     console.error(`Error: Expected ${file} to be located here: /home/gignu/GitHub/Detect-File-Encoding-and-Language/${folder}`);
