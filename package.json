@@ -4,8 +4,8 @@
   "description": "Charset Detector - Detect the encoding and language of text files - Use it in the browser, with Node.js, or via CLI",
   "main": "src/index-node.js",
   "browser": {
-    "src/index-node.js": "src/index-browser.js",
-    "src/index-node.d.ts": "src/index-browser.d.ts"
+    "./src/index-node.js": "./src/index-browser.js",
+    "./src/index-node.d.ts": "./src/index-browser.d.ts"
   },
   "scripts": {
     "file": "node ./bin/cli.js",
