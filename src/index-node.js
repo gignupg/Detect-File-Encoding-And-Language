@@ -3,7 +3,7 @@ const checkUTF = require("./components/checkUTF.js");
 const processContent = require("./components/processContent.js");
 const checkByteOrderMark = require("./components/checkByteOrderMark.js");
 
-module.exports = (file) => {
+module.exports = (filePath) => {
   return new Promise((resolve, reject) => {
     const fileInfo = {
       encoding: null,
@@ -16,7 +16,7 @@ module.exports = (file) => {
     const data = {};
 
     // Reading the first four bytes and checking if they coincide with one of the predefined byte order marks.
-    const readStream = fs.createReadStream(file, { start: 0, end: 3 });
+    const readStream = fs.createReadStream(filePath, { start: 0, end: 3 });
 
     readStream.on("data", function (buffer) {
       const uInt8Array = new Uint8Array(buffer);
@@ -29,7 +29,7 @@ module.exports = (file) => {
 
         // Node.js only supports UTF-8 and UTF-16LE. If one of them has been detected, we know how to read the content
         if (fileInfo.encoding === "UTF-8" || fileInfo.encoding === "UTF-16LE") {
-          fs.readFile(file, fileInfo.encoding, (err, utfContent) => {
+          fs.readFile(filePath, fileInfo.encoding, (err, utfContent) => {
             if (err) reject(err);
             data.content = utfContent;
             resolve(processContent(data, fileInfo));
@@ -37,14 +37,14 @@ module.exports = (file) => {
 
           // If the encoding in the byteOrderMarkObject is not UTF-8 or UTF-16LE we return the encoding without the language
         } else {
-          if (file.encoding === "GB-18030") {
+          if (fileInfo.encoding === "GB-18030") {
             fileInfo.language = "chinese-simplified";
             fileInfo.confidence.language = 1;
           }
           resolve(fileInfo);
         }
       } else {
-        fs.readFile(file, "UTF-8", (err, utfContent) => {
+        fs.readFile(filePath, "UTF-8", (err, utfContent) => {
           if (err) reject(err);
 
           const utf8 = checkUTF(utfContent);
@@ -58,7 +58,7 @@ module.exports = (file) => {
             data.content = utfContent;
             resolve(processContent(data, fileInfo));
           } else {
-            fs.readFile(file, "latin1", (err, isoContent) => {
+            fs.readFile(filePath, "latin1", (err, isoContent) => {
               if (err) reject(err);
 
               data.content = isoContent;
