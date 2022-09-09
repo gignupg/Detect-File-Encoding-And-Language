@@ -33,7 +33,7 @@ module.exports = (data, fileInfo) => {
     fileInfo.language = null;
     fileInfo.confidence.language = null;
 
-    if (!byteOrderMarkObject.includes(fileInfo.encoding)) {
+    if (!byteOrderMarkObject.some(obj => obj.encoding === fileInfo.encoding)) {
       fileInfo.encoding = null;
       fileInfo.confidence.encoding = null;
     }
