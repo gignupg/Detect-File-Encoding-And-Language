@@ -1,4 +1,4 @@
-const languageEncoding = require("../src/index-node.js");
+const languageEncoding = require("../../src/index-node.js");
 const fs = require("fs");
 
 // Making sure all important files are there

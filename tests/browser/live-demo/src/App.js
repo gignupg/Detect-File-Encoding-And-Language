@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import defaultFileInfo from "./defaultFileInfo.js";
-import languageEncoding from "detect-file-encoding-and-language";
 
 function App() {
   const [file, setFile] = useState(null);

@@ -6,11 +6,11 @@
   "browser": "src/index-browser.js",
   "types": "src/index.d.ts",
   "scripts": {
-    "file": "node ./bin/cli.js",
-    "test": "node ./tests/node.test.js",
+    "testFile": "node ./bin/cli.js",
+    "testFolder": "node ./tests/node/node.test.js",
     "build": "browserify ./src/index-browser.js --standalone languageEncoding > ./umd/language-encoding.min.js",
     "minify": "uglifyjs ./umd/language-encoding.min.js --compress --output ./umd/language-encoding.min.js",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm testFolder"
   },
   "bin": {
     "dfeal": "./bin/cli.js"
