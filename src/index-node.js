@@ -5,6 +5,7 @@ const checkByteOrderMark = require("./components/checkByteOrderMark.js");
 
 module.exports = (filePath) => {
   return new Promise((resolve, reject) => {
+    let isEmpty = true;
     const fileInfo = {
       encoding: null,
       language: null,
@@ -19,6 +20,7 @@ module.exports = (filePath) => {
     const readStream = fs.createReadStream(filePath, { start: 0, end: 3 });
 
     readStream.on("data", function (buffer) {
+      isEmpty=false;
       const uInt8Array = new Uint8Array(buffer);
       const uInt8String = uInt8Array.join(" ");
       const byteOrderMark = checkByteOrderMark(uInt8String);
@@ -68,6 +70,11 @@ module.exports = (filePath) => {
         });
       }
     });
+    readStream.on("end", function () {
+      if(isEmpty) {
+        resolve(fileInfo)
+      }
+    })
     // This catches any errors that happen while creating the readable stream (usually invalid names)
     readStream.on("error", function (err) {
       reject(err);
