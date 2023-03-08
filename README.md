@@ -16,7 +16,7 @@ Determine the encoding and language of text files!
 - Works best with large inputs
 - Completely free, no API key required
 
-For reliable encoding and language detection, use files containing 500 words or more. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect.
+For reliable encoding and language detection, use files containing at least 500 words of coherent text. Smaller inputs can work as well but the results might be less accurate and in some cases incorrect.
 
 ## Live Demo
 
