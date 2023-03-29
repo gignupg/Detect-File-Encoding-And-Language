@@ -86,6 +86,9 @@ dfeal "/home/username/Documents/subtitle file.srt"
 # Possible result: { language: french, encoding: CP1252, confidence: { encoding: 0.99, language: 0.99 } }
 ```
 
+### Using a buffer
+Check out [this issue page](https://github.com/gignupg/Detect-File-Encoding-And-Language/issues/3#issuecomment-1476074963)! @davuses posted a very simple code snippet there that converts your buffer into a blob which you can then pass into the function instead of a file!
+
 ## Supported Languages
 
 - Polish
