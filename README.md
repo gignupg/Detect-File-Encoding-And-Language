@@ -66,6 +66,7 @@ export default function App() {
 ```
 
 ### In Node
+#### File
 
 ```js
 // server.js
@@ -73,6 +74,15 @@ const languageEncoding = require("detect-file-encoding-and-language");
 const pathToFile = "/home/username/documents/my-text-file.txt";
 languageEncoding(pathToFile).then((fileInfo) => console.log(fileInfo));
 // Possible result: { language: japanese, encoding: Shift-JIS, confidence: { encoding: 0.94, language: 0.94 } }
+```
+
+#### Buffer
+
+```js
+// server.js
+const languageEncoding = require("detect-file-encoding-and-language");
+const content = Buffer.from("file content");
+languageEncoding(content).then((fileInfo) => console.log(fileInfo));
 ```
 
 ### Via CLI
