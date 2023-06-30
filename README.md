@@ -83,6 +83,7 @@ languageEncoding(pathToFile).then((fileInfo) => console.log(fileInfo));
 const languageEncoding = require("detect-file-encoding-and-language");
 const content = Buffer.from("file content");
 languageEncoding(content).then((fileInfo) => console.log(fileInfo));
+// Possible result: { language: japanese, encoding: Shift-JIS, confidence: { encoding: 0.94, language: 0.94 } }
 ```
 
 ### Via CLI
@@ -96,7 +97,7 @@ dfeal "/home/username/Documents/subtitle file.srt"
 # Possible result: { language: french, encoding: CP1252, confidence: { encoding: 0.99, language: 0.99 } }
 ```
 
-### Using a buffer
+### Using a buffer (browser)
 Check out [this issue page](https://github.com/gignupg/Detect-File-Encoding-And-Language/issues/3#issuecomment-1476074963)! @davuses posted a very simple code snippet there that converts your buffer into a blob which you can then pass into the function instead of a file!
 
 ## Supported Languages
