@@ -50,6 +50,14 @@ testFiles.forEach((file) => {
     });
 });
 
+// Test buffer usage
+const buffer = Buffer.from("Content of a file");
+languageEncoding(buffer).then((bufferFileInfo) => {
+  if (bufferFileInfo.encoding !== "UTF-8") {
+    setError("buffer", bufferFileInfo);
+  }
+});
+
 // Recursively find all files in a folder and all it's subdirectories
 function getFiles(dir, files_) {
   files_ = files_ || [];
